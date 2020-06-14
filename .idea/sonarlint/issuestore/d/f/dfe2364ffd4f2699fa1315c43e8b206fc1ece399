@@ -1,0 +1,10 @@
+
+C
+java:S1068"(Remove this unused "race" private field.(ĞÓš8Õ»Ó«.
+L
+java:S1068"1Remove this unused "abilityscores" private field.(¢îä¨8Õ»Ó«.
+i	java:S116"PRename this field "Class" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÒ¬T8Õ»Ó«.
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(°é½§8Õ»Ó«.
+C
+java:S1068")Remove this unused "Class" private field.(åÒ¬T8Õ»Ó«.
