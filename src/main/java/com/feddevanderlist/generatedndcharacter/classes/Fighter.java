@@ -12,8 +12,8 @@ public class Fighter extends GlobalClass {
         primaryAbility.addAll(Arrays.asList("Strength", "Dexterity"));
         weaponProficiencies.addAll(Arrays.asList("simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("All Armor", "All Shields"));
-        CharacterSheet.savingThrowProficiencies.addAll(Arrays.asList("Strength", "Constitution"));
-        CharacterSheet.proficiencyBonus = +2;
+        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Constitution"));
+        CharacterSheet.addProficiencyBonus(2);;
         CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.acrobatics, Skills.animalHandling, Skills.athletics, Skills.history, Skills.insight, Skills.intimidation, Skills.perception, Skills.survival), 2);
     }
 }

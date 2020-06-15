@@ -1,10 +1,14 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Languages {
+    private Languages() {
+    }
+
     private static List<String> languages = Arrays.asList("Abyssal",
             "Aquan",
             "Auran",
@@ -28,14 +32,12 @@ public class Languages {
             "Terran",
             "Undercommon");
 
-    public static List<String> getRandomLanguage(List<String> learned) {
-        String extraLanguage;
-        do {
-            extraLanguage = languages.get(ThreadLocalRandom.current().nextInt(languages.size()));
+    public static String getRandomLanguage(List<String> learned) {
+        List<String> allLanguages = new ArrayList<>(languages);
+        if (!learned.isEmpty()) {
+            allLanguages.removeAll(learned);
         }
-        while (learned.contains(extraLanguage));
-        learned.add(extraLanguage);
-        return learned;
+        return allLanguages.get(ThreadLocalRandom.current().nextInt(allLanguages.size()));
     }
 
     public static List<String> getRandomLanguage(String learned) {

@@ -12,8 +12,8 @@ public class Rogue extends GlobalClass {
         primaryAbility.add("Dexterity");
         weaponProficiencies.addAll(Arrays.asList("Hand crossbows", "longswords", "rapiers", "shortswords"));
         armorProfieciencies.add("Light");
-        CharacterSheet.savingThrowProficiencies.addAll(Arrays.asList("Dexterity", "Intelligence"));
-        CharacterSheet.proficiencyBonus +=2;
+        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Dexterity", "Intelligence"));
+        CharacterSheet.addProficiencyBonus(2);
         CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.acrobatics,Skills.athletics,Skills.deception,Skills.insight,Skills.investigation,Skills.intimidation,Skills.perception,Skills.peformance,Skills.persuasion,Skills.sleightOfHand,Skills.stealth),4);
     }
 }

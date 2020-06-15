@@ -1,20 +1,17 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.Alignment;
-
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.CharacterSheet.abilityScore;
-
 
 public class Tiefling extends Race {
 
     public Tiefling() {
-
+        name = "Tiefling";
         age = ThreadLocalRandom.current().nextInt(100);
         alignment = Alignment.getRandomAlingment();
         size = "medium";
@@ -23,9 +20,9 @@ public class Tiefling extends Race {
         speed = 30;
         languages = Arrays.asList("Common", "Infernal");
         traits = Arrays.asList("Darkvision", "Hellish Resistance", "Infernal Legacy");
-        CharacterSheet.proficiencies.add(Skills.intimidation);
+        CharacterSheet.getProficiencies().add(Skills.intimidation);
         subrace = null;
-        abilityScore.addCharisma(2);
-        abilityScore.addInteligence(1);
+        CharacterSheet.getAbilityScore().addCharisma(2);
+        CharacterSheet.getAbilityScore().addInteligence(1);
     }
 }

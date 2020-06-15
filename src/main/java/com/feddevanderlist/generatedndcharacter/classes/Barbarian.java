@@ -12,9 +12,9 @@ public class Barbarian extends GlobalClass {
         primaryAbility.add("Strength");
         weaponProficiencies.addAll(Arrays.asList("Simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("Light", "Medium", "Shields"));
-        CharacterSheet.savingThrowProficiencies.addAll(Arrays.asList("Strength", "Constitution"));
-        CharacterSheet.proficiencyBonus += 2;
+        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Constitution"));
+        CharacterSheet.addProficiencyBonus(2);
         CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.animalHandling, Skills.athletics, Skills.intimidation, Skills.nature, Skills.perception, Skills.survival), 2);
-        CharacterSheet.addArmorClass(CharacterSheet.abilityScore.getDexterity());
+        CharacterSheet.addArmorClass(CharacterSheet.getAbilityScore().getDexterity());
     }
 }

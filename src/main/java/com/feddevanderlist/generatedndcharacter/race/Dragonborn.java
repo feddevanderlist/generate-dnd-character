@@ -1,18 +1,17 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.Alignment;
+import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.CharacterSheet.abilityScore;
-
 
 public class Dragonborn extends Race {
 
     public Dragonborn() {
-
+        name = "Dragonborn";
         age = ThreadLocalRandom.current().nextInt(80);
         alignment = Alignment.getRandomAlingment();
         size = "medium";
@@ -22,7 +21,7 @@ public class Dragonborn extends Race {
         languages = Arrays.asList("Common", "Draconic");
         traits = Arrays.asList("Breath Weapon", "Damage Resistance");
         draconicAncestry();
-        abilityScore.addStrength(2);
+        CharacterSheet.getAbilityScore().addStrength(2);
     }
 
     private void draconicAncestry() {

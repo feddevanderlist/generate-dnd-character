@@ -9,10 +9,34 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ChooseRace {
 
-    List<Race> races = Arrays.asList(new Dwarf(), new Elf(), new Halfling(), new Human(), new Dragonborn(), new Gnome(), new Half_Elf(), new Half_Orc(), new Tiefling());
+    List<String> races = Arrays.asList("Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half_Elf", "Half_Orc", "Tiefling");
+
+    public ChooseRace() {
+    }
 
     public Race randomRace() {
 
-        return races.get(ThreadLocalRandom.current().nextInt(races.size()));
+        switch (races.get(ThreadLocalRandom.current().nextInt(races.size()))) {
+            case "Dwarf":
+                return new Dwarf();
+            case "Elf":
+                return new Elf();
+            case "Halfling":
+                return new Halfling();
+            case "Human":
+                return new Human();
+            case "Dragonborn":
+                return new Dragonborn();
+            case "Gnome":
+                return new Gnome();
+            case "Half_Elf":
+                return new Half_Elf();
+            case "Half_Orc":
+                return new Half_Orc();
+            case "Tiefling":
+                return new Tiefling();
+            default:
+                return null;
+        }
     }
 }
