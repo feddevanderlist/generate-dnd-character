@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Dwarf extends Race {
 
-    public Dwarf() {
+    public Dwarf(CharacterSheet characterSheet) {
         name = "Dwarf";
         age = ThreadLocalRandom.current().nextInt(5, 350);
         alignment = Alignment.getRandomAlingment();
@@ -20,19 +20,19 @@ public class Dwarf extends Race {
         speed = 25;
         languages.addAll(Arrays.asList("Common", "Dwarvish"));
         traits.addAll(Arrays.asList("Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"));
-        chooseSubrace();
-        CharacterSheet.getAbilityScore().addConstitution(2);
+        chooseSubrace(characterSheet);
+        characterSheet.getAbilityScore().addConstitution(2);
     }
 
-    private void chooseSubrace() {
+    private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("Hill Dwarves", "Mountain Dwarves");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Hill Dwarves")) {
-            CharacterSheet.getAbilityScore().addWisdom(1);
-            CharacterSheet.addHitPoints(1);
+            characterSheet.getAbilityScore().addWisdom(1);
+            characterSheet.addHitPoints(1);
             traits.add("Dwarven Toughness");
         } else if (subrace.equals("Mountain Dwarves")) {
-            CharacterSheet.getAbilityScore().addStrength(2);
+            characterSheet.getAbilityScore().addStrength(2);
             traits.add("Dwarven Armor Training");
         }
     }

@@ -7,12 +7,13 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Sorcerer extends GlobalClass {
-    public Sorcerer() {
-        hitDie = 6;
+    public Sorcerer(CharacterSheet characterSheet) {
+        name = "Sorcerer";
+        characterSheet.setHitDice(6);
         primaryAbility.add("Charisma");
         weaponProficiencies.addAll(Arrays.asList("Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"));
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Constitution"));
-        CharacterSheet.addProficiencyBonus(2);
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana,Skills.deception,Skills.insight,Skills.intimidation,Skills.persuasion,Skills.religion),2);
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Constitution"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.deception, Skills.insight, Skills.intimidation, Skills.persuasion, Skills.religion), 2);
     }
 }

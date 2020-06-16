@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Tiefling extends Race {
 
-    public Tiefling() {
+    public Tiefling(CharacterSheet characterSheet) {
         name = "Tiefling";
         age = ThreadLocalRandom.current().nextInt(100);
         alignment = Alignment.getRandomAlingment();
@@ -20,9 +20,9 @@ public class Tiefling extends Race {
         speed = 30;
         languages = Arrays.asList("Common", "Infernal");
         traits = Arrays.asList("Darkvision", "Hellish Resistance", "Infernal Legacy");
-        CharacterSheet.getProficiencies().add(Skills.intimidation);
+        characterSheet.getProficiencies().add(Skills.intimidation);
         subrace = null;
-        CharacterSheet.getAbilityScore().addCharisma(2);
-        CharacterSheet.getAbilityScore().addInteligence(1);
+        characterSheet.getAbilityScore().addCharisma(2);
+        characterSheet.getAbilityScore().addInteligence(1);
     }
 }

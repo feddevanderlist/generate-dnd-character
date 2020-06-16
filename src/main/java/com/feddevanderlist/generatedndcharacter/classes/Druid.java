@@ -7,13 +7,14 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Druid extends GlobalClass {
-    public Druid() {
-        hitDie = 8;
+    public Druid(CharacterSheet characterSheet) {
+        name = "Druid";
+        characterSheet.setHitDice(8);
         primaryAbility.add("Wisdom");
         weaponProficiencies.addAll(Arrays.asList("Clubs", "Shields", "Darts", "Javelins", "Maces", "Quarterstaffs", "Scimitars", "Sickles", "Slings", "Spears"));
         armorProfieciencies.addAll(Arrays.asList("Light (nonmetal)", "Medium (nonmetal)", "Shields (nonmetal)"));
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Intelligence"));
-        CharacterSheet.addProficiencyBonus(2);
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.animalHandling, Skills.insight, Skills.medicine, Skills.nature, Skills.perception, Skills.religion, Skills.survival), 2);
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Intelligence"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.animalHandling, Skills.insight, Skills.medicine, Skills.nature, Skills.perception, Skills.religion, Skills.survival), 2);
     }
 }

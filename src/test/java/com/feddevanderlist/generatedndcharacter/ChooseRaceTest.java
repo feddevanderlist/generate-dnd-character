@@ -10,7 +10,8 @@ class ChooseRaceTest {
 
     @Test
     void randomRace() {
-        Race race = new ChooseRace().randomRace();
+        CharacterSheet characterSheet = new CharacterSheet();
+        Race race = new ChooseRace().randomRace(characterSheet);
         assertThat(race, is(not(nullValue())));
         assertThat(race.getName(), is(not(emptyString())));
         assertThat(race.getAge(), is(not(nullValue())));

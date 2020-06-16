@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Halfling extends Race {
 
-    public Halfling() {
+    public Halfling(CharacterSheet characterSheet) {
         name = "Halfling";
         age = ThreadLocalRandom.current().nextInt(5, 40);
         alignment = Alignment.getRandomAlingment();
@@ -20,19 +20,19 @@ public class Halfling extends Race {
         speed = 25;
         languages = Arrays.asList("Common", "Halfling");
         traits.addAll(Arrays.asList("Lucky", "Brave", "Halfling Nimbleness"));
-        chooseSubrace();
-        CharacterSheet.getAbilityScore().addDexterity(2);
+        chooseSubrace(characterSheet);
+        characterSheet.getAbilityScore().addDexterity(2);
     }
 
-    private void chooseSubrace() {
+    private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("Lightfoot", "Stout");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Lightfoot")) {
-            CharacterSheet.getAbilityScore().addCharisma(1);
-            CharacterSheet.addHitPoints(1);
+            characterSheet.getAbilityScore().addCharisma(1);
+            characterSheet.addHitPoints(1);
             traits.add("Naturally Stealthy");
         } else if (subrace.equals("Stout")) {
-            CharacterSheet.getAbilityScore().addConstitution(2);
+            characterSheet.getAbilityScore().addConstitution(2);
             traits.add("Stout Resilience");
         }
     }

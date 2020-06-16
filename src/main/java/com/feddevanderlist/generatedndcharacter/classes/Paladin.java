@@ -7,13 +7,14 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Paladin extends GlobalClass {
-    public Paladin() {
-        hitDie = 10;
+    public Paladin(CharacterSheet characterSheet) {
+        name = "Paladin";
+        characterSheet.setHitDice(10);
         primaryAbility.addAll(Arrays.asList("Strength", "Charisma"));
         weaponProficiencies.addAll(Arrays.asList("simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("All Armor", "All Shields"));
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Charisma"));
-        CharacterSheet.addProficiencyBonus(2);
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.athletics, Skills.insight, Skills.intimidation, Skills.medicine, Skills.persuasion, Skills.religion), 2);
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Charisma"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.athletics, Skills.insight, Skills.intimidation, Skills.medicine, Skills.persuasion, Skills.religion), 2);
     }
 }

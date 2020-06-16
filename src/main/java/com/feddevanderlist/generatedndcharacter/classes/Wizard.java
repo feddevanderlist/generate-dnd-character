@@ -7,12 +7,13 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Wizard extends GlobalClass {
-    public Wizard() {
-        hitDie = 6;
+    public Wizard(CharacterSheet characterSheet) {
+        name = "Rogue";
+        characterSheet.setHitDice(6);
         primaryAbility.add("Intelligence");
-        weaponProficiencies.addAll(Arrays.asList("Daggers","darts","Slings","Quarterstaffs","Light Crossbow"));
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Intelligence", "Wisdom"));
-        CharacterSheet.addProficiencyBonus(2);
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana,Skills.history,Skills.insight,Skills.investigation,Skills.religion),2);
+        weaponProficiencies.addAll(Arrays.asList("Daggers", "darts", "Slings", "Quarterstaffs", "Light Crossbow"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Intelligence", "Wisdom"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.history, Skills.insight, Skills.investigation, Skills.religion), 2);
     }
 }

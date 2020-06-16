@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Dragonborn extends Race {
 
-    public Dragonborn() {
+    public Dragonborn(CharacterSheet characterSheet) {
         name = "Dragonborn";
         age = ThreadLocalRandom.current().nextInt(80);
         alignment = Alignment.getRandomAlingment();
@@ -21,7 +21,7 @@ public class Dragonborn extends Race {
         languages = Arrays.asList("Common", "Draconic");
         traits = Arrays.asList("Breath Weapon", "Damage Resistance");
         draconicAncestry();
-        CharacterSheet.getAbilityScore().addStrength(2);
+        characterSheet.getAbilityScore().addStrength(2);
     }
 
     private void draconicAncestry() {

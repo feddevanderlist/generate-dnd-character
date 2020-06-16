@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Gnome extends Race {
 
-    public Gnome() {
+    public Gnome(CharacterSheet characterSheet) {
         name = "Gnome";
         age = ThreadLocalRandom.current().nextInt(500);
         alignment = Alignment.getRandomAlingment();
@@ -20,19 +20,19 @@ public class Gnome extends Race {
         speed = 25;
         languages.addAll(Arrays.asList("Common", "Gnomish"));
         traits.addAll(Arrays.asList("Darkvision", "Gnome Cunning"));
-        chooseSubrace();
-        CharacterSheet.getAbilityScore().addInteligence(2);
+        chooseSubrace(characterSheet);
+        characterSheet.getAbilityScore().addInteligence(2);
     }
 
-    private void chooseSubrace() {
+    private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("Rock Gnome", "Forest Gnomes");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Rock Gnome")) {
-            CharacterSheet.getAbilityScore().addConstitution(1);
+            characterSheet.getAbilityScore().addConstitution(1);
             traits.add("Artificer’s Lore");
             traits.add("Tinker");
         } else if (subrace.equals("Forest Gnomes")) {
-            CharacterSheet.getAbilityScore().addDexterity(1);
+            characterSheet.getAbilityScore().addDexterity(1);
             traits.add("Natural Illusionist");
             traits.add("Speak with Small Beasts.");
         }

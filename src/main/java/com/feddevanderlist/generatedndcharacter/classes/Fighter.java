@@ -7,13 +7,14 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Fighter extends GlobalClass {
-    public Fighter() {
-        hitDie = 10;
+    public Fighter(CharacterSheet characterSheet) {
+        name = "Fighter";
+        characterSheet.setHitDice(10);
         primaryAbility.addAll(Arrays.asList("Strength", "Dexterity"));
         weaponProficiencies.addAll(Arrays.asList("simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("All Armor", "All Shields"));
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Constitution"));
-        CharacterSheet.addProficiencyBonus(2);;
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.acrobatics, Skills.animalHandling, Skills.athletics, Skills.history, Skills.insight, Skills.intimidation, Skills.perception, Skills.survival), 2);
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Constitution"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.acrobatics, Skills.animalHandling, Skills.athletics, Skills.history, Skills.insight, Skills.intimidation, Skills.perception, Skills.survival), 2);
     }
 }

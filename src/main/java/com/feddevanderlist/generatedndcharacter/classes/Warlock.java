@@ -7,13 +7,14 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 
 public class Warlock extends GlobalClass {
-    public Warlock() {
-        hitDie = 8;
+    public Warlock(CharacterSheet characterSheet) {
+        name = "Warlock";
+        characterSheet.setHitDice(8);
         primaryAbility.add("Charisma");
         weaponProficiencies.add("Light");
         armorProfieciencies.add("Simple");
-        CharacterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Wisdom"));
-        CharacterSheet.addProficiencyBonus(2);
-        CharacterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana,Skills.deception,Skills.history,Skills.intimidation,Skills.investigation,Skills.nature,Skills.religion),2);
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Wisdom"));
+        characterSheet.addProficiencyBonus(2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.deception, Skills.history, Skills.intimidation, Skills.investigation, Skills.nature, Skills.religion), 2);
     }
 }

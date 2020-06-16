@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Half_Orc extends Race {
 
-    public Half_Orc() {
+    public Half_Orc(CharacterSheet characterSheet) {
         name = "Half-Orc";
         age = ThreadLocalRandom.current().nextInt(75);
         alignment = Alignment.getRandomAlingment();
@@ -20,7 +20,7 @@ public class Half_Orc extends Race {
         languages = Arrays.asList("Common", "Orc");
         traits = Arrays.asList("Darkvision", "Menacing", "Relentless Endurance", "Savage Attacks");
         subrace = null;
-        CharacterSheet.getAbilityScore().addStrength(2);
-        CharacterSheet.getAbilityScore().addCharisma(1);
+        characterSheet.getAbilityScore().addStrength(2);
+        characterSheet.getAbilityScore().addCharisma(1);
     }
 }

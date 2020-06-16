@@ -14,29 +14,19 @@ public class ChooseRace {
     public ChooseRace() {
     }
 
-    public Race randomRace() {
+    public Race randomRace(CharacterSheet characterSheet) {
 
-        switch (races.get(ThreadLocalRandom.current().nextInt(races.size()))) {
-            case "Dwarf":
-                return new Dwarf();
-            case "Elf":
-                return new Elf();
-            case "Halfling":
-                return new Halfling();
-            case "Human":
-                return new Human();
-            case "Dragonborn":
-                return new Dragonborn();
-            case "Gnome":
-                return new Gnome();
-            case "Half_Elf":
-                return new Half_Elf();
-            case "Half_Orc":
-                return new Half_Orc();
-            case "Tiefling":
-                return new Tiefling();
-            default:
-                return null;
-        }
+        return switch (races.get(ThreadLocalRandom.current().nextInt(races.size()))) {
+            case "Dwarf" -> new Dwarf(characterSheet);
+            case "Elf" -> new Elf(characterSheet);
+            case "Halfling" -> new Halfling(characterSheet);
+            case "Human" -> new Human(characterSheet);
+            case "Dragonborn" -> new Dragonborn(characterSheet);
+            case "Gnome" -> new Gnome(characterSheet);
+            case "Half_Elf" -> new Half_Elf(characterSheet);
+            case "Half_Orc" -> new Half_Orc(characterSheet);
+            case "Tiefling" -> new Tiefling(characterSheet);
+            default -> null;
+        };
     }
 }

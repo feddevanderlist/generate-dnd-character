@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Half_Elf extends Race {
 
-    public Half_Elf() {
+    public Half_Elf(CharacterSheet characterSheet) {
         name = "Half-Elf";
         age = ThreadLocalRandom.current().nextInt(350);
         alignment = Alignment.getRandomAlingment();
@@ -22,7 +22,7 @@ public class Half_Elf extends Race {
         languages.add(Languages.getRandomLanguage(Arrays.asList("Common", "Elvish")));
         traits = Arrays.asList("Darkvision", "Fey Ancestry", "Skill Versatility");
         subrace = null;
-        CharacterSheet.getAbilityScore().addCharisma(2);
-        CharacterSheet.addRandomSkills(2);
+        characterSheet.getAbilityScore().addCharisma(2);
+        characterSheet.addRandomSkills(2);
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Human extends Race {
 
-    public Human() {
+    public Human(CharacterSheet characterSheet) {
         name = "Human";
         age = ThreadLocalRandom.current().nextInt(95);
         alignment = Alignment.getRandomAlingment();
@@ -19,7 +19,7 @@ public class Human extends Race {
         weight = ThreadLocalRandom.current().nextInt(120, 200);
         speed = 30;
         languages.addAll(Languages.getRandomLanguage("Common"));
-        CharacterSheet.getAbilityScore().addOneToAll();
-        CharacterSheet.addRandomSkills(1);
+        characterSheet.getAbilityScore().addOneToAll();
+        characterSheet.addRandomSkills(1);
     }
 }

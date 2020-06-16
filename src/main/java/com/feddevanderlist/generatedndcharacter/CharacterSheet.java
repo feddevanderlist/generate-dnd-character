@@ -6,108 +6,100 @@ import com.feddevanderlist.generatedndcharacter.race.Race;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CharacterSheet {
-    private static int armorClass = 10;
-    private static int hitPoints = 0;
-    private static HashMap<Integer, Integer> hitDice = new HashMap<>();
-    private static int initiative = 0;
-    private static int proficiencyBonus = 0;
-    private static List<Skills> proficiencies = new ArrayList<>();
-    private static GlobalClass _class = null;
-    private static Race race = null;
-    private static AbilityScore abilityScore = new AbilityScore();
-    private static List<String> savingThrowProficiencies = new ArrayList<>();
+    private int armorClass;
+    private int hitPoints;
+    private int hitDice;
+    private int initiative;
+    private int proficiencyBonus;
+    private List<Skills> proficiencies;
+    private GlobalClass _class;
+    private Race race;
+    private AbilityScore abilityScore;
+    private List<String> savingThrowProficiencies;
 
     public CharacterSheet() {
-
+        armorClass = 10;
+        hitPoints = 0;
+        hitDice = 0;
+        initiative = 0;
+        proficiencyBonus = 0;
+        proficiencies = new ArrayList<>();
+        _class = null;
+        race = null;
+        abilityScore = new AbilityScore();
+        savingThrowProficiencies = new ArrayList<>();
     }
 
 
-    public static int getArmorClass() {
+    public int getArmorClass() {
         return armorClass;
     }
 
-    public static void setArmorClass(int armorClass) {
-        CharacterSheet.armorClass = armorClass;
-    }
-
-    public static int getHitPoints() {
+    public int getHitPoints() {
         return hitPoints;
     }
 
-    public static void setHitPoints(int hitPoints) {
-        CharacterSheet.hitPoints = hitPoints;
-    }
-
-    public static HashMap<Integer, Integer> getHitDice() {
+    public int getHitDice() {
         return hitDice;
     }
 
-    public static void setHitDice(HashMap<Integer, Integer> hitDice) {
-        CharacterSheet.hitDice = hitDice;
+    public void setHitDice(int hitDice) {
+        this.hitDice = hitDice;
     }
 
-    public static int getInitiative() {
+    public int getInitiative() {
         return initiative;
     }
 
-    public static void setInitiative(int initiative) {
-        CharacterSheet.initiative = initiative;
-    }
-
-    public static int getProficiencyBonus() {
+    public int getProficiencyBonus() {
         return proficiencyBonus;
     }
 
-    public static List<Skills> getProficiencies() {
+    public List<Skills> getProficiencies() {
         return proficiencies;
     }
 
-    public static GlobalClass get_class() {
+    public GlobalClass get_class() {
         return _class;
     }
 
-    public static void set_class(GlobalClass _class) {
-        CharacterSheet._class = _class;
+    public void set_class(GlobalClass _class) {
+        this._class = _class;
     }
 
-    public static Race getRace() {
+    public Race getRace() {
         return race;
     }
 
-    public static void setRace(Race race) {
-        CharacterSheet.race = race;
+    public void setRace(Race race) {
+        this.race = race;
     }
 
-    public static AbilityScore getAbilityScore() {
+    public AbilityScore getAbilityScore() {
         return abilityScore;
     }
 
-    public static void setAbilityScore(AbilityScore abilityScore) {
-        CharacterSheet.abilityScore = abilityScore;
-    }
-
-    public static List<String> getSavingThrowProficiencies() {
+    public List<String> getSavingThrowProficiencies() {
         return savingThrowProficiencies;
     }
 
-    public static void addHitPoints(int hp) {
+    public void addHitPoints(int hp) {
         hitPoints += hp;
     }
 
-    public static void addArmorClass(int ac) {
+    public void addArmorClass(int ac) {
         armorClass += ac;
     }
 
-    public static void addProficiencyBonus(int pb) {
+    public void addProficiencyBonus(int pb) {
         proficiencyBonus += pb;
     }
 
-    public static void addRandomSkillsFromList(List<Skills> possible, int amount) {
+    public void addRandomSkillsFromList(List<Skills> possible, int amount) {
         ArrayList<Skills> skillsArrayList = new ArrayList<>(possible);
         if (!proficiencies.isEmpty()) {
             skillsArrayList.removeAll(proficiencies);
@@ -119,7 +111,7 @@ public class CharacterSheet {
         }
     }
 
-    public static void addRandomSkills(int amount) {
+    public void addRandomSkills(int amount) {
         List<Skills> allSkils = new ArrayList<>(Arrays.asList(Skills.values()));
         if (!proficiencies.isEmpty()) {
             allSkils.removeAll(proficiencies);
@@ -130,5 +122,9 @@ public class CharacterSheet {
             proficiencies.add(skill);
             allSkils.remove(skill);
         }
+    }
+
+    public void calculateInitiative() {
+        this.initiative = this.abilityScore.getDexModifier();
     }
 }
