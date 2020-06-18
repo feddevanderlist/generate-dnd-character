@@ -13,10 +13,14 @@ class CharacterSheetTest {
         CharacterSheet characterSheet = new CharacterSheet();
         assertThat(characterSheet.getArmorClass(), is(10));
         characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
-        assertThat(characterSheet.getRace(),is(notNullValue()));
+        assertThat(characterSheet.getRace(), is(notNullValue()));
         characterSheet.set_class(new Monk(characterSheet));
-        assertThat(characterSheet.get_class(),is(notNullValue()));
-        assertThat(characterSheet.getHitDice(),is(8));
+        assertThat(characterSheet.get_class(), is(notNullValue()));
+        assertThat(characterSheet.getHitDice(), is(8));
+        characterSheet.calculateInitiative();
+        assertThat(characterSheet.getInitiative(), is(characterSheet.getAbilityScore().getDexModifier()));
+        characterSheet.calculateHitPoints();
+        assertThat(characterSheet.getHitPoints(), is(characterSheet.getHitDice() + characterSheet.getAbilityScore().getConModifier()));
 
     }
 

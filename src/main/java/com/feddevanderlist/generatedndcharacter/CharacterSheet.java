@@ -127,4 +127,8 @@ public class CharacterSheet {
     public void calculateInitiative() {
         this.initiative = this.abilityScore.getDexModifier();
     }
+
+    public void calculateHitPoints(){
+        this.hitPoints = this.hitDice + this.abilityScore.getConModifier();
+    }
 }

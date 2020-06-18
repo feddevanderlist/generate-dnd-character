@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Wizard extends GlobalClass {
     public Wizard(CharacterSheet characterSheet) {
-        name = "Rogue";
+        name = "Wizard";
         characterSheet.setHitDice(6);
         primaryAbility.add("Intelligence");
         weaponProficiencies.addAll(Arrays.asList("Daggers", "darts", "Slings", "Quarterstaffs", "Light Crossbow"));
