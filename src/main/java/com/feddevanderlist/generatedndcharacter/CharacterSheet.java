@@ -18,7 +18,7 @@ public class CharacterSheet {
     private List<Skills> proficiencies;
     private GlobalClass _class;
     private Race race;
-    private AbilityScore abilityScore;
+    private AbilityScore abilityScore = new AbilityScore();
     private List<String> savingThrowProficiencies;
 
     public CharacterSheet() {
@@ -30,7 +30,7 @@ public class CharacterSheet {
         proficiencies = new ArrayList<>();
         _class = null;
         race = null;
-        abilityScore = new AbilityScore();
+        abilityScore.init();
         savingThrowProficiencies = new ArrayList<>();
     }
 

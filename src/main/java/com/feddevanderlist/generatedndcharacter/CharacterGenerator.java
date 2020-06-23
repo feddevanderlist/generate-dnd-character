@@ -1,13 +1,21 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import java.io.IOException;
+
 public class CharacterGenerator {
 
-    public static void main(String[] args) {
-        CharacterSheet characterSheet = new CharacterSheet();
+    public static CharacterSheet characterSheet;
+
+    public static void main(String[] args) throws IOException {
+        characterSheet = new CharacterSheet();
+
         characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
         characterSheet.set_class(new RandomClass().randomClass(characterSheet));
         characterSheet.calculateInitiative();
-        System.out.println(characterSheet.getRace().getName());
-        System.out.println(characterSheet.get_class().getName());
+        characterSheet.calculateHitPoints();
+        ImageEditor printableCharacterSheet = new ImageEditor();
+        printableCharacterSheet.fillAllFields(characterSheet);
+
+        printableCharacterSheet.WriteImage();
     }
 }
