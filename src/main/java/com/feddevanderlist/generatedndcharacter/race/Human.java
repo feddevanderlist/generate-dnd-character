@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.Alignment;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Languages;
@@ -19,7 +20,7 @@ public class Human extends Race {
         weight = ThreadLocalRandom.current().nextInt(120, 200);
         speed = 30;
         languages.addAll(Languages.getRandomLanguage("Common"));
-        characterSheet.getAbilityScore().addOneToAll();
+        Ability.addOneToAll();
         characterSheet.addRandomSkills(1);
     }
 }

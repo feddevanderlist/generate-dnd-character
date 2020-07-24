@@ -1,12 +1,14 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
+import com.feddevanderlist.generatedndcharacter.Ability;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class GlobalClass {
     List<String> weaponProficiencies = new ArrayList<>();
     List<String> armorProfieciencies = new ArrayList<>();
-    List<String> primaryAbility = new ArrayList<>();
+    List<Ability> primaryAbility = new ArrayList<>();
     String name;
 
     public String getName() {
@@ -21,7 +23,7 @@ public class GlobalClass {
         return armorProfieciencies;
     }
 
-    public List<String> getPrimaryAbility() {
+    public List<Ability> getPrimaryAbility() {
         return primaryAbility;
     }
 }

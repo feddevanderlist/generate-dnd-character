@@ -63,26 +63,33 @@ public class ImageEditor {
         addValueToPicture(hp, 765, 555);
     }
 
-    public void addAbilityScores(AbilityScore abilityScore) {
+    public void addSpellSaveDC(int spellSaveDC) {
+        addValueToPicture(spellSaveDC, 770, 888);
+    }
+    public void addAttackMod(int spellAtkMod) {
+        addValueToPicture(spellAtkMod, 930, 888);
+    }
+
+    public void addAbilityScores() {
         graphics.setFont(graphics.getFont().deriveFont(30f));
-        addValueBonusToPicture(abilityScore.getStrModifier(), 145, 508);
-        addValueToPicture(abilityScore.getStrength(), 145, 570);
+        addValueBonusToPicture(Ability.getStrModifier(), 145, 508);
+        addValueToPicture(Ability.STRENGTH.value, 145, 570);
 
-        addValueBonusToPicture(abilityScore.getDexModifier(), 145, 680);
+        addValueBonusToPicture(Ability.getDexModifier(), 145, 680);
 
-        addValueToPicture(abilityScore.getDexterity(), 145, 750);
+        addValueToPicture(Ability.DEXTERITY.value, 145, 750);
 
-        addValueBonusToPicture(abilityScore.getConModifier(), 145, 860);
-        addValueToPicture(abilityScore.getConstitution(), 145, 930);
+        addValueBonusToPicture(Ability.getConModifier(), 145, 860);
+        addValueToPicture(Ability.CONSTITUTION.value, 145, 930);
 
-        addValueBonusToPicture(abilityScore.getIntModifier(), 145, 1040);
-        addValueToPicture(abilityScore.getIntelligence(), 145, 1104);
+        addValueBonusToPicture(Ability.getIntModifier(), 145, 1040);
+        addValueToPicture(Ability.INTELLIGENCE.value, 145, 1104);
 
-        addValueBonusToPicture(abilityScore.getWisModifier(), 145, 1210);
-        addValueToPicture(abilityScore.getWisdom(), 145, 1283);
+        addValueBonusToPicture(Ability.getWisModifier(), 145, 1210);
+        addValueToPicture(Ability.WISDOM.value, 145, 1283);
 
-        addValueBonusToPicture(abilityScore.getChrModifier(), 145, 1388);
-        addValueToPicture(abilityScore.getCharisma(), 145, 1460);
+        addValueBonusToPicture(Ability.getChrModifier(), 145, 1388);
+        addValueToPicture(Ability.CHARISMA.value, 145, 1460);
     }
 
     private void addValueBonusToPicture(int value, int x, int y) {
@@ -100,16 +107,16 @@ public class ImageEditor {
     public void fillAllFields(CharacterSheet characterSheet) {
         addClassAndLevelToSheet(characterSheet.get_class().getName());
         addRace(characterSheet.getRace().getName());
-        addAbilityScores(characterSheet.getAbilityScore());
+        addAbilityScores();
         addHitPoints(characterSheet.getHitPoints());
-        addArmorClass(characterSheet.getAbilityScore().getDexModifier(),characterSheet.getArmorClass());
+        addArmorClass(Ability.getDexModifier(), characterSheet.getArmorClass());
         addProficiencyBonus(characterSheet.getProficiencyBonus());
         addAlingment(characterSheet.getRace().getAlignment());
-        addPassivePerception(characterSheet.getAbilityScore().getWisModifier());
+        addPassivePerception(Ability.getWisModifier());
         addSpeed(characterSheet.getRace().getSpeed());
-        addInitiative(characterSheet.getAbilityScore().getDexModifier(),false);
-
-
+        addInitiative(Ability.getDexModifier(), false);
+        addSpellSaveDC(characterSheet.getSpellSaveDc());
+        addAttackMod(characterSheet.getSpellAttackMod());
 
     }
 

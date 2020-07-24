@@ -7,6 +7,8 @@ import com.feddevanderlist.generatedndcharacter.Skills;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static com.feddevanderlist.generatedndcharacter.Ability.*;
+
 
 public class Tiefling extends Race {
 
@@ -22,7 +24,7 @@ public class Tiefling extends Race {
         traits = Arrays.asList("Darkvision", "Hellish Resistance", "Infernal Legacy");
         characterSheet.getProficiencies().add(Skills.intimidation);
         subrace = null;
-        characterSheet.getAbilityScore().addCharisma(2);
-        characterSheet.getAbilityScore().addInteligence(1);
+        add(CHARISMA, 2);
+        add(INTELLIGENCE, 1);
     }
 }

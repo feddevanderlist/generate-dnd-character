@@ -1,12 +1,15 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.Alignment;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Languages;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static com.feddevanderlist.generatedndcharacter.Ability.add;
 
 
 public class Half_Elf extends Race {
@@ -22,7 +25,7 @@ public class Half_Elf extends Race {
         languages.add(Languages.getRandomLanguage(Arrays.asList("Common", "Elvish")));
         traits = Arrays.asList("Darkvision", "Fey Ancestry", "Skill Versatility");
         subrace = null;
-        characterSheet.getAbilityScore().addCharisma(2);
+        add(Ability.CHARISMA,2);
         characterSheet.addRandomSkills(2);
     }
 }

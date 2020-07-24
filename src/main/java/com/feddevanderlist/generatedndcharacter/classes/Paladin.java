@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,7 @@ public class Paladin extends GlobalClass {
     public Paladin(CharacterSheet characterSheet) {
         name = "Paladin";
         characterSheet.setHitDice(10);
-        primaryAbility.addAll(Arrays.asList("Strength", "Charisma"));
+        primaryAbility.addAll(Arrays.asList(Ability.STRENGTH, Ability.CHARISMA));
         weaponProficiencies.addAll(Arrays.asList("simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("All Armor", "All Shields"));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Charisma"));

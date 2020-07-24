@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,8 @@ public class Wizard extends GlobalClass {
     public Wizard(CharacterSheet characterSheet) {
         name = "Wizard";
         characterSheet.setHitDice(6);
-        primaryAbility.add("Intelligence");
+
+        primaryAbility.add(Ability.INTELLIGENCE);
         weaponProficiencies.addAll(Arrays.asList("Daggers", "darts", "Slings", "Quarterstaffs", "Light Crossbow"));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Intelligence", "Wisdom"));
         characterSheet.addProficiencyBonus(2);

@@ -18,8 +18,9 @@ public class CharacterSheet {
     private List<Skills> proficiencies;
     private GlobalClass _class;
     private Race race;
-    private AbilityScore abilityScore = new AbilityScore();
     private List<String> savingThrowProficiencies;
+    private int spellSaveDc;
+    private int spellAttackMod;
 
     public CharacterSheet() {
         armorClass = 10;
@@ -30,13 +31,25 @@ public class CharacterSheet {
         proficiencies = new ArrayList<>();
         _class = null;
         race = null;
-        abilityScore.init();
+        Ability.init();
         savingThrowProficiencies = new ArrayList<>();
+
     }
 
 
     public int getArmorClass() {
         return armorClass;
+    }
+
+
+    public int getSpellSaveDc() {
+        calculateSpellDC();
+        return spellSaveDc;
+    }
+
+    public int getSpellAttackMod() {
+        calculateSpellAtkMod();
+        return spellAttackMod;
     }
 
     public int getHitPoints() {
@@ -77,10 +90,6 @@ public class CharacterSheet {
 
     public void setRace(Race race) {
         this.race = race;
-    }
-
-    public AbilityScore getAbilityScore() {
-        return abilityScore;
     }
 
     public List<String> getSavingThrowProficiencies() {
@@ -125,10 +134,18 @@ public class CharacterSheet {
     }
 
     public void calculateInitiative() {
-        this.initiative = this.abilityScore.getDexModifier();
+        this.initiative = Ability.getDexModifier();
     }
 
-    public void calculateHitPoints(){
-        this.hitPoints = this.hitDice + this.abilityScore.getConModifier();
+    public void calculateHitPoints() {
+        this.hitPoints = this.hitDice + Ability.getConModifier();
+    }
+
+    public void calculateSpellDC() {
+        this.spellSaveDc = 8 + proficiencyBonus + Ability.getPrimaryModifier(_class.getPrimaryAbility());
+    }
+
+    public void calculateSpellAtkMod() {
+        this.spellAttackMod = proficiencyBonus + Ability.getPrimaryModifier(_class.getPrimaryAbility());
     }
 }

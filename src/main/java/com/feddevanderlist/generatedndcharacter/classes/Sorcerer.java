@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,7 @@ public class Sorcerer extends GlobalClass {
     public Sorcerer(CharacterSheet characterSheet) {
         name = "Sorcerer";
         characterSheet.setHitDice(6);
-        primaryAbility.add("Charisma");
+        primaryAbility.add(Ability.CHARISMA);
         weaponProficiencies.addAll(Arrays.asList("Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Constitution"));
         characterSheet.addProficiencyBonus(2);

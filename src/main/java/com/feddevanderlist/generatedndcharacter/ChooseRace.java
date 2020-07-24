@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ChooseRace {
 
-    List<String> races = Arrays.asList("Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half_Elf", "Half_Orc", "Tiefling");
+    private final List<String> races = Arrays.asList("Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half_Elf", "Half_Orc", "Tiefling");
 
     public ChooseRace() {
     }

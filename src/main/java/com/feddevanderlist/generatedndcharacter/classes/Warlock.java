@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,7 @@ public class Warlock extends GlobalClass {
     public Warlock(CharacterSheet characterSheet) {
         name = "Warlock";
         characterSheet.setHitDice(8);
-        primaryAbility.add("Charisma");
+        primaryAbility.add(Ability.CHARISMA);
         weaponProficiencies.add("Light");
         armorProfieciencies.add("Simple");
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Wisdom"));

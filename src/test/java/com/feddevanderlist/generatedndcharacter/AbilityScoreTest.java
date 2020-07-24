@@ -2,6 +2,7 @@ package com.feddevanderlist.generatedndcharacter;
 
 import org.junit.jupiter.api.Test;
 
+import static com.feddevanderlist.generatedndcharacter.Ability.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -10,75 +11,75 @@ class AbilityScoreTest {
 
     @Test
     void addOneToAll() {
-        AbilityScore abilityScore = new AbilityScore();
-        abilityScore.addOneToAll();
-        assertThat(abilityScore.getIntelligence(), is(1));
-        assertThat(abilityScore.getCharisma(), is(1));
-        assertThat(abilityScore.getDexterity(), is(1));
-        assertThat(abilityScore.getConstitution(), is(1));
-        assertThat(abilityScore.getStrength(), is(1));
-        assertThat(abilityScore.getWisdom(), is(1));
+        Ability.resetValues();
+        Ability.addOneToAll();
+        assertThat(Ability.INTELLIGENCE.value, is(1));
+        assertThat(Ability.CHARISMA.value, is(1));
+        assertThat(Ability.DEXTERITY.value, is(1));
+        assertThat(Ability.CONSTITUTION.value, is(1));
+        assertThat(Ability.STRENGTH.value, is(1));
+        assertThat(Ability.WISDOM.value, is(1));
     }
 
     @Test
     void getIntModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getIntelligence(), is(0));
-        abilityScore.setIntelligence(1);
-        assertThat(abilityScore.getIntelligence(), is(1));
-        assertThat(abilityScore.getIntModifier(), is(-5));
+        Ability.resetValues();
+        assertThat(Ability.INTELLIGENCE.value, is(0));
+        Ability.INTELLIGENCE.value = 1;
+        assertThat(Ability.INTELLIGENCE.value, is(1));
+        assertThat(Ability.getIntModifier(), is(-5));
     }
 
     @Test
     void getDexModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getDexterity(), is(0));
-        abilityScore.setDexterity(10);
-        assertThat(abilityScore.getDexterity(), is(10));
-        assertThat(abilityScore.getDexModifier(), is(0));
+        Ability.resetValues();
+        assertThat(Ability.DEXTERITY.value, is(0));
+        Ability.DEXTERITY.value = 10;
+        assertThat(Ability.DEXTERITY.value, is(10));
+        assertThat(Ability.getDexModifier(), is(0));
     }
 
     @Test
     void getConModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getConstitution(), is(0));
-        abilityScore.setConstitution(11);
-        assertThat(abilityScore.getConstitution(), is(11));
-        assertThat(abilityScore.getConModifier(), is(0));
+        Ability.resetValues();
+        assertThat(Ability.CONSTITUTION.value, is(0));
+        Ability.CONSTITUTION.value=11;
+        assertThat(Ability.CONSTITUTION.value, is(11));
+        assertThat(Ability.getConModifier(), is(0));
     }
 
     @Test
     void getStrModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getStrength(), is(0));
-        abilityScore.setStrength(2);
-        assertThat(abilityScore.getStrength(), is(2));
-        assertThat(abilityScore.getStrModifier(), is(-4));
+        Ability.resetValues();
+        assertThat(Ability.STRENGTH.value, is(0));
+        Ability.STRENGTH.value = 2;
+        assertThat(Ability.STRENGTH.value, is(2));
+        assertThat(Ability.getStrModifier(), is(-4));
     }
 
     @Test
     void getWisModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getWisdom(), is(0));
-        abilityScore.setWisdom(3);
-        assertThat(abilityScore.getWisdom(), is(3));
-        assertThat(abilityScore.getWisModifier(), is(-4));
+        Ability.resetValues();
+        assertThat(Ability.WISDOM.value, is(0));
+        Ability.WISDOM.value=3;
+        assertThat(Ability.WISDOM.value, is(3));
+        assertThat(Ability.getWisModifier(), is(-4));
     }
 
     @Test
     void getChrModifier() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getCharisma(), is(0));
-        abilityScore.setCharisma(7);
-        assertThat(abilityScore.getCharisma(), is(7));
-        assertThat(abilityScore.getChrModifier(), is(-2));
+        Ability.resetValues();
+        assertThat(Ability.CHARISMA.value, is(0));
+        Ability.CHARISMA.value =7;
+        assertThat(Ability.CHARISMA.value, is(7));
+        assertThat(Ability.getChrModifier(), is(-2));
     }
 
     @Test
     void rolAbilityScore() {
-        AbilityScore abilityScore = new AbilityScore();
+
         for (int i = 0; i < 5000; i++) {
-            int result = abilityScore.rolAbilityScore();
+            int result = Ability.rolAbilityScore();
             assertThat(result, allOf(greaterThan(2), lessThan(19)));
         }
     }
@@ -110,45 +111,45 @@ class AbilityScoreTest {
 
     @Test
     void init() {
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getIntelligence(), is(0));
-        assertThat(abilityScore.getCharisma(), is(0));
-        assertThat(abilityScore.getDexterity(), is(0));
-        assertThat(abilityScore.getConstitution(), is(0));
-        assertThat(abilityScore.getStrength(), is(0));
-        assertThat(abilityScore.getWisdom(), is(0));
-        abilityScore.init();
-        assertThat(abilityScore.getIntelligence(), allOf(greaterThan(2), lessThan(19)));
-        assertThat(abilityScore.getCharisma(), allOf(greaterThan(2), lessThan(19)));
-        assertThat(abilityScore.getDexterity(), allOf(greaterThan(2), lessThan(19)));
-        assertThat(abilityScore.getConstitution(), allOf(greaterThan(2), lessThan(19)));
-        assertThat(abilityScore.getStrength(), allOf(greaterThan(2), lessThan(19)));
-        assertThat(abilityScore.getWisdom(), allOf(greaterThan(2), lessThan(19)));
+        Ability.resetValues();
+        assertThat(Ability.INTELLIGENCE.value, is(0));
+        assertThat(Ability.CHARISMA.value, is(0));
+        assertThat(Ability.DEXTERITY.value, is(0));
+        assertThat(Ability.CONSTITUTION.value, is(0));
+        assertThat(Ability.STRENGTH.value, is(0));
+        assertThat(Ability.WISDOM.value, is(0));
+        Ability.init();
+        assertThat(Ability.INTELLIGENCE.value, allOf(greaterThan(2), lessThan(19)));
+        assertThat(Ability.CHARISMA.value, allOf(greaterThan(2), lessThan(19)));
+        assertThat(Ability.DEXTERITY.value, allOf(greaterThan(2), lessThan(19)));
+        assertThat(Ability.CONSTITUTION.value, allOf(greaterThan(2), lessThan(19)));
+        assertThat(Ability.STRENGTH.value, allOf(greaterThan(2), lessThan(19)));
+        assertThat(Ability.WISDOM.value, allOf(greaterThan(2), lessThan(19)));
     }
 
     @Test
-    void addFunctions(){
-        AbilityScore abilityScore = new AbilityScore();
-        assertThat(abilityScore.getIntelligence(), is(0));
-        assertThat(abilityScore.getCharisma(), is(0));
-        assertThat(abilityScore.getDexterity(), is(0));
-        assertThat(abilityScore.getConstitution(), is(0));
-        assertThat(abilityScore.getStrength(), is(0));
-        assertThat(abilityScore.getWisdom(), is(0));
-        abilityScore.addInteligence(5);
-        abilityScore.addCharisma(5);
-        abilityScore.addConstitution(5);
-        abilityScore.addDexterity(5);
-        abilityScore.addStrength(5);
-        abilityScore.addWisdom(5);
-        assertThat(abilityScore.getIntelligence(), is(5));
-        assertThat(abilityScore.getCharisma(), is(5));
-        assertThat(abilityScore.getDexterity(), is(5));
-        assertThat(abilityScore.getConstitution(), is(5));
-        assertThat(abilityScore.getStrength(), is(5));
-        assertThat(abilityScore.getWisdom(), is(5));
-        abilityScore.addWisdom(2);
-        assertThat(abilityScore.getWisdom(), is(7));
+    void addFunctions() {
+        Ability.resetValues();
+        assertThat(Ability.INTELLIGENCE.value, is(0));
+        assertThat(Ability.CHARISMA.value, is(0));
+        assertThat(Ability.DEXTERITY.value, is(0));
+        assertThat(Ability.CONSTITUTION.value, is(0));
+        assertThat(Ability.STRENGTH.value, is(0));
+        assertThat(Ability.WISDOM.value, is(0));
+        add(INTELLIGENCE,5);
+        add(CHARISMA,5);
+        add(CONSTITUTION,5);
+        add(STRENGTH,5);
+        add(DEXTERITY,5);
+        add(WISDOM,5);
 
+        assertThat(Ability.INTELLIGENCE.value, is(5));
+        assertThat(Ability.CHARISMA.value, is(5));
+        assertThat(Ability.DEXTERITY.value, is(5));
+        assertThat(Ability.CONSTITUTION.value, is(5));
+        assertThat(Ability.STRENGTH.value, is(5));
+        assertThat(Ability.WISDOM.value, is(5));
+        add(WISDOM,2);
+        assertThat(Ability.WISDOM.value, is(7));
     }
 }

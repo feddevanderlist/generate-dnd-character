@@ -18,9 +18,9 @@ class CharacterSheetTest {
         assertThat(characterSheet.get_class(), is(notNullValue()));
         assertThat(characterSheet.getHitDice(), is(8));
         characterSheet.calculateInitiative();
-        assertThat(characterSheet.getInitiative(), is(characterSheet.getAbilityScore().getDexModifier()));
+        assertThat(characterSheet.getInitiative(), is(Ability.getDexModifier()));
         characterSheet.calculateHitPoints();
-        assertThat(characterSheet.getHitPoints(), is(characterSheet.getHitDice() + characterSheet.getAbilityScore().getConModifier()));
+        assertThat(characterSheet.getHitPoints(), is(characterSheet.getHitDice() + Ability.getConModifier()));
 
     }
 

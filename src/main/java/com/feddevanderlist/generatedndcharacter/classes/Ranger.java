@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,7 @@ public class Ranger extends GlobalClass {
     public Ranger(CharacterSheet characterSheet) {
         name = "Ranger";
         characterSheet.setHitDice(10);
-        primaryAbility.addAll(Arrays.asList("Dexterity ", "Wisdom"));
+        primaryAbility.addAll(Arrays.asList(Ability.DEXTERITY, Ability.WISDOM));
         weaponProficiencies.addAll(Arrays.asList("simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("Light", "Medium", "Shields"));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Dexterity"));

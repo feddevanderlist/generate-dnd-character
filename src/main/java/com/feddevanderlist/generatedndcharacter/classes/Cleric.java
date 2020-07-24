@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
+import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.Skills;
 
@@ -10,7 +11,7 @@ public class Cleric extends GlobalClass {
     public Cleric(CharacterSheet characterSheet) {
         name = "Cleric";
         characterSheet.setHitDice(8);
-        primaryAbility.add("Wisdom");
+        primaryAbility.add(Ability.WISDOM);
         weaponProficiencies.add("simple");
         armorProfieciencies.addAll(Arrays.asList("Light", "medium", "shields"));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Charisma"));
