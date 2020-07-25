@@ -13,7 +13,7 @@ import static com.feddevanderlist.generatedndcharacter.Ability.add;
 
 public class Dragonborn extends Race {
 
-    public Dragonborn(CharacterSheet characterSheet) {
+    public Dragonborn() {
         name = "Dragonborn";
         age = ThreadLocalRandom.current().nextInt(80);
         alignment = Alignment.getRandomAlingment();

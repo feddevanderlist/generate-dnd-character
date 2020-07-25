@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.*;
 
 class ElfTest {
     @Test
-    public void testElf() {
+    void testElf() {
         CharacterSheet characterSheet = new CharacterSheet();
         Elf elf = new Elf(characterSheet);
         assertThat(elf.getName(), is("Elf"));

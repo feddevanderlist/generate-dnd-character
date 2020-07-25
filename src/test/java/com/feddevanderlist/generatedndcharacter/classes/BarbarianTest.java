@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 
 class BarbarianTest {
     @Test
-    public void barbarianTest() {
+    void barbarianTest() {
         Ability.resetValues();
         CharacterSheet characterSheet = new CharacterSheet();
         MatcherAssert.assertThat(characterSheet.getArmorClass(), is(10));

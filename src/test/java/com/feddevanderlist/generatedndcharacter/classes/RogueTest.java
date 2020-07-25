@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class RogueTest {
     @Test
-    public void rogueTest(){
+    void rogueTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Rogue rogue = new Rogue(characterSheet);
         assertThat(rogue.getName(),is("Rogue"));

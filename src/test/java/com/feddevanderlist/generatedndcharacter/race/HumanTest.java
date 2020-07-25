@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class HumanTest {
     @Test
-    public void testHuman() {
+    void testHuman() {
         CharacterSheet characterSheet = new CharacterSheet();
         Human human = new Human(characterSheet);
         assertThat(human.getName(), is("Human"));

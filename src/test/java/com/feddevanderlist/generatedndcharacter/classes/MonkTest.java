@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.is;
 class MonkTest {
 
     @Test
-    public void monkTest(){
+    void monkTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Monk monk = new Monk(characterSheet);
         assertThat(monk.getName(),is("Monk"));

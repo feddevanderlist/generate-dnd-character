@@ -13,7 +13,7 @@ import static com.feddevanderlist.generatedndcharacter.Ability.add;
 
 public class Gnome extends Race {
 
-    public Gnome(CharacterSheet characterSheet) {
+    public Gnome() {
         name = "Gnome";
         age = ThreadLocalRandom.current().nextInt(500);
         alignment = Alignment.getRandomAlingment();
@@ -23,11 +23,11 @@ public class Gnome extends Race {
         speed = 25;
         languages.addAll(Arrays.asList("Common", "Gnomish"));
         traits.addAll(Arrays.asList("Darkvision", "Gnome Cunning"));
-        chooseSubrace(characterSheet);
+        chooseSubrace();
         add(Ability.INTELLIGENCE, 2);
     }
 
-    private void chooseSubrace(CharacterSheet characterSheet) {
+    private void chooseSubrace() {
         List<String> possibleSubrace = Arrays.asList("Rock Gnome", "Forest Gnomes");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Rock Gnome")) {

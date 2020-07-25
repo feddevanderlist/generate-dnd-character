@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class FighterTest {
     @Test
-    public void fighterTest(){
+    void fighterTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Fighter fighter = new Fighter(characterSheet);
         assertThat(fighter.getName(),is("Fighter"));

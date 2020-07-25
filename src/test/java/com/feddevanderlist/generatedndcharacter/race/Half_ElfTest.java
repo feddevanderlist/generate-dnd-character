@@ -8,9 +8,9 @@ import static org.hamcrest.Matchers.*;
 
 class Half_ElfTest {
     @Test
-    public void testHalfElf() {
+    void testHalfElf() {
         CharacterSheet characterSheet = new CharacterSheet();
-        Half_Elf halfElf = new Half_Elf(characterSheet);
+        HalfElf halfElf = new HalfElf(characterSheet);
         assertThat(halfElf.getName(), is("Half-Elf"));
     }
 }

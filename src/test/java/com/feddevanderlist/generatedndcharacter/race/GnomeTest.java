@@ -8,9 +8,8 @@ import static org.hamcrest.Matchers.*;
 
 class GnomeTest {
     @Test
-    public void testGnome() {
-        CharacterSheet characterSheet = new CharacterSheet();
-        Gnome gnome = new Gnome(characterSheet);
+    void testGnome() {
+        Gnome gnome = new Gnome();
         assertThat(gnome.getName(), is("Gnome"));
         assertThat(gnome.getSubrace(), is(not(nullValue())));
     }

@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class DruidTest {
     @Test
-    public void druidTest(){
+    void druidTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Druid druid = new Druid(characterSheet);
         assertThat(druid.getName(),is("Druid"));

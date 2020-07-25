@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class RandomClassTest {
     @Test
-    public void randomClassTest() {
+    void randomClassTest() {
         CharacterSheet characterSheet = new CharacterSheet();
         GlobalClass _class = new RandomClass().randomClass(characterSheet);
         assertNotNull(_class);
     }
 
     @Test
-    public void forFunTest() {
+    void forFunTest() {
         List<GlobalClass> _classes = new ArrayList<>();
         while (_classes.size() < 12) {
             CharacterSheet characterSheets = new CharacterSheet();

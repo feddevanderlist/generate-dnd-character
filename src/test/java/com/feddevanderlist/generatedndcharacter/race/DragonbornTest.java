@@ -9,9 +9,9 @@ import static org.hamcrest.Matchers.*;
 class DragonbornTest {
 
     @Test
-    public void testDragonborn() {
+    void testDragonborn() {
         CharacterSheet characterSheet = new CharacterSheet();
-        Dragonborn dragonborn = new Dragonborn(characterSheet);
+        Dragonborn dragonborn = new Dragonborn();
         assertThat(dragonborn.getName(), is("Dragonborn"));
         assertThat(dragonborn.getSubrace(), is(not(nullValue())));
     }

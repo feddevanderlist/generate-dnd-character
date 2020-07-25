@@ -8,9 +8,9 @@ import static org.hamcrest.Matchers.is;
 
 class PaladinTest {
     @Test
-    public void paladinTest(){
+    void paladinTest() {
         CharacterSheet characterSheet = new CharacterSheet();
         Paladin paladin = new Paladin(characterSheet);
-        assertThat(paladin.getName(),is("Paladin"));
+        assertThat(paladin.getName(), is("Paladin"));
     }
 }

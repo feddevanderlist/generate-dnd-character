@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class TieflingTest {
     @Test
-    public void testTiefling() {
+    void testTiefling() {
         CharacterSheet characterSheet = new CharacterSheet();
         Tiefling tiefling = new Tiefling(characterSheet);
         assertThat(tiefling.getName(), is("Tiefling"));

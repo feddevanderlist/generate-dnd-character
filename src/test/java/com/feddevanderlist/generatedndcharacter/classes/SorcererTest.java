@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class SorcererTest {
     @Test
-    public void sorcererTest(){
+    void sorcererTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Sorcerer sorcerer = new Sorcerer(characterSheet);
         assertThat(sorcerer.getName(),is("Sorcerer"));

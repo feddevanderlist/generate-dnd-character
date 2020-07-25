@@ -9,7 +9,7 @@ public class Languages {
     private Languages() {
     }
 
-    private static List<String> languages = Arrays.asList("Abyssal",
+    private static final List<String> languagesList = Arrays.asList("Abyssal",
             "Aquan",
             "Auran",
             "Celestial",
@@ -33,7 +33,7 @@ public class Languages {
             "Undercommon");
 
     public static String getRandomLanguage(List<String> learned) {
-        List<String> allLanguages = new ArrayList<>(languages);
+        List<String> allLanguages = new ArrayList<>(languagesList);
         if (!learned.isEmpty()) {
             allLanguages.removeAll(learned);
         }
@@ -43,7 +43,7 @@ public class Languages {
     public static List<String> getRandomLanguage(String learned) {
         String extraLanguage;
         do {
-            extraLanguage = languages.get(ThreadLocalRandom.current().nextInt(languages.size()));
+            extraLanguage = languagesList.get(ThreadLocalRandom.current().nextInt(languagesList.size()));
         }
         while (learned.equals(extraLanguage));
 

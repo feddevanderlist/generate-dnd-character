@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 class WarlockTest {
     @Test
-    public void warlockTest(){
+    void warlockTest(){
         CharacterSheet characterSheet = new CharacterSheet();
         Warlock warlock = new Warlock(characterSheet);
         assertThat(warlock.getName(),is("Warlock"));

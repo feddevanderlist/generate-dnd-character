@@ -5,14 +5,16 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class ImageEditor {
 
     private Graphics graphics;
-    final private BufferedImage image;
+    private final BufferedImage image;
+    private Path basePath = Path.of("src\\main\\java\\Resources\\");
 
     public ImageEditor() throws IOException {
-        image = ImageIO.read(new File("C:\\Users\\hijacked\\IdeaProjects\\generatedndcharacter\\src\\main\\java\\Resources\\Alt-pg-front.jpg"));
+        image = ImageIO.read(new File(basePath + "\\Alt-pg-front.jpg"));
         graphics = image.getGraphics();
         graphics.setColor(Color.BLACK);
 
@@ -66,6 +68,7 @@ public class ImageEditor {
     public void addSpellSaveDC(int spellSaveDC) {
         addValueToPicture(spellSaveDC, 770, 888);
     }
+
     public void addAttackMod(int spellAtkMod) {
         addValueToPicture(spellAtkMod, 930, 888);
     }
@@ -120,9 +123,9 @@ public class ImageEditor {
 
     }
 
-    public void WriteImage() throws IOException {
+    public void writeImage() throws IOException {
         graphics.dispose();
-        ImageIO.write(image, "jpg", new File("C:\\Users\\hijacked\\IdeaProjects\\generatedndcharacter\\src\\main\\java\\Resources\\test.jpg"));
+        ImageIO.write(image, "jpg", new File(basePath + "test.jpg"));
     }
 
 }

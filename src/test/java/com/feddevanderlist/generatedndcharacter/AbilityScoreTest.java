@@ -43,7 +43,7 @@ class AbilityScoreTest {
     void getConModifier() {
         Ability.resetValues();
         assertThat(Ability.CONSTITUTION.value, is(0));
-        Ability.CONSTITUTION.value=11;
+        Ability.CONSTITUTION.value = 11;
         assertThat(Ability.CONSTITUTION.value, is(11));
         assertThat(Ability.getConModifier(), is(0));
     }
@@ -61,7 +61,7 @@ class AbilityScoreTest {
     void getWisModifier() {
         Ability.resetValues();
         assertThat(Ability.WISDOM.value, is(0));
-        Ability.WISDOM.value=3;
+        Ability.WISDOM.value = 3;
         assertThat(Ability.WISDOM.value, is(3));
         assertThat(Ability.getWisModifier(), is(-4));
     }
@@ -70,7 +70,7 @@ class AbilityScoreTest {
     void getChrModifier() {
         Ability.resetValues();
         assertThat(Ability.CHARISMA.value, is(0));
-        Ability.CHARISMA.value =7;
+        Ability.CHARISMA.value = 7;
         assertThat(Ability.CHARISMA.value, is(7));
         assertThat(Ability.getChrModifier(), is(-2));
     }
@@ -86,7 +86,8 @@ class AbilityScoreTest {
 
     @Test
     void rounding() {
-        for (int i = 1; i < 30; i++) {
+        int i;
+        for (i = 1; i < 30; i++) {
             switch (i) {
                 case 1 -> assertThat(Math.floor((i - 10F) / 2), is(-5.0));
                 case 2, 3 -> assertThat(Math.floor((i - 10F) / 2), is(-4.0));
@@ -107,6 +108,7 @@ class AbilityScoreTest {
                 default -> throw new ArithmeticException("the calculation went wrong");
             }
         }
+        assertThat(i, is(30));
     }
 
     @Test
@@ -136,12 +138,12 @@ class AbilityScoreTest {
         assertThat(Ability.CONSTITUTION.value, is(0));
         assertThat(Ability.STRENGTH.value, is(0));
         assertThat(Ability.WISDOM.value, is(0));
-        add(INTELLIGENCE,5);
-        add(CHARISMA,5);
-        add(CONSTITUTION,5);
-        add(STRENGTH,5);
-        add(DEXTERITY,5);
-        add(WISDOM,5);
+        add(INTELLIGENCE, 5);
+        add(CHARISMA, 5);
+        add(CONSTITUTION, 5);
+        add(STRENGTH, 5);
+        add(DEXTERITY, 5);
+        add(WISDOM, 5);
 
         assertThat(Ability.INTELLIGENCE.value, is(5));
         assertThat(Ability.CHARISMA.value, is(5));
@@ -149,7 +151,7 @@ class AbilityScoreTest {
         assertThat(Ability.CONSTITUTION.value, is(5));
         assertThat(Ability.STRENGTH.value, is(5));
         assertThat(Ability.WISDOM.value, is(5));
-        add(WISDOM,2);
+        add(WISDOM, 2);
         assertThat(Ability.WISDOM.value, is(7));
     }
 }

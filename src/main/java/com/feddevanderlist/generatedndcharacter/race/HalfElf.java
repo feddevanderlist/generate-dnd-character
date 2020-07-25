@@ -12,9 +12,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import static com.feddevanderlist.generatedndcharacter.Ability.add;
 
 
-public class Half_Elf extends Race {
+public class HalfElf extends Race {
 
-    public Half_Elf(CharacterSheet characterSheet) {
+    public HalfElf(CharacterSheet characterSheet) {
         name = "Half-Elf";
         age = ThreadLocalRandom.current().nextInt(350);
         alignment = Alignment.getRandomAlingment();

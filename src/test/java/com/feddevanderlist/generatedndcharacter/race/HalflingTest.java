@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.*;
 
 class HalflingTest {
     @Test
-    public void testHalfling() {
+    void testHalfling() {
         CharacterSheet characterSheet = new CharacterSheet();
         Halfling halfling = new Halfling(characterSheet);
         assertThat(halfling.getName(), is("Halfling"));
