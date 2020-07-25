@@ -13,7 +13,7 @@ public class Monk extends GlobalClass {
         characterSheet.setHitDice(8);
         primaryAbility.addAll(Arrays.asList(Ability.DEXTERITY, Ability.WISDOM));
         weaponProficiencies.addAll(Arrays.asList("Simple", "Shortswords"));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Dexterity"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.STRENGTH, Ability.DEXTERITY));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.acrobatics, Skills.athletics, Skills.history, Skills.insight, Skills.religion, Skills.stealth), 2);
     }

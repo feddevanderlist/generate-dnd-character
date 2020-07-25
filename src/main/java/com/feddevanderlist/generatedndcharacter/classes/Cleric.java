@@ -14,7 +14,7 @@ public class Cleric extends GlobalClass {
         primaryAbility.add(Ability.WISDOM);
         weaponProficiencies.add("simple");
         armorProfieciencies.addAll(Arrays.asList("Light", "medium", "shields"));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Wisdom", "Charisma"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.WISDOM, Ability.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.history, Skills.insight, Skills.medicine, Skills.persuasion, Skills.religion), 2);
     }

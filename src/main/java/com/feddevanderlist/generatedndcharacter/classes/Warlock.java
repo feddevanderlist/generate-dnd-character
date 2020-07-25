@@ -14,7 +14,7 @@ public class Warlock extends GlobalClass {
         primaryAbility.add(Ability.CHARISMA);
         weaponProficiencies.add("Light");
         armorProfieciencies.add("Simple");
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Wisdom"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.CHARISMA, Ability.WISDOM));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.deception, Skills.history, Skills.intimidation, Skills.investigation, Skills.nature, Skills.religion), 2);
     }

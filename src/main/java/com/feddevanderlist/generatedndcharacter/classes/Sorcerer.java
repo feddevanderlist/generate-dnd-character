@@ -13,7 +13,7 @@ public class Sorcerer extends GlobalClass {
         characterSheet.setHitDice(6);
         primaryAbility.add(Ability.CHARISMA);
         weaponProficiencies.addAll(Arrays.asList("Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Charisma", "Constitution"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.CHARISMA, Ability.CONSTITUTION));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.deception, Skills.insight, Skills.intimidation, Skills.persuasion, Skills.religion), 2);
     }

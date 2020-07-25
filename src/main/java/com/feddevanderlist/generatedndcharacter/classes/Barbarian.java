@@ -14,9 +14,8 @@ public class Barbarian extends GlobalClass {
         primaryAbility.add(Ability.STRENGTH);
         weaponProficiencies.addAll(Arrays.asList("Simple", "Martial"));
         armorProfieciencies.addAll(Arrays.asList("Light", "Medium", "Shields"));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Strength", "Constitution"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.STRENGTH, Ability.CONSTITUTION));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.animalHandling, Skills.athletics, Skills.intimidation, Skills.nature, Skills.perception, Skills.survival), 2);
-        characterSheet.addArmorClass(Ability.getDexModifier() + Ability.getConModifier());
     }
 }

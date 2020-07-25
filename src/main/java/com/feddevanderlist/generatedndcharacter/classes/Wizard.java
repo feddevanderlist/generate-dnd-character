@@ -14,7 +14,7 @@ public class Wizard extends GlobalClass {
 
         primaryAbility.add(Ability.INTELLIGENCE);
         weaponProficiencies.addAll(Arrays.asList("Daggers", "darts", "Slings", "Quarterstaffs", "Light Crossbow"));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList("Intelligence", "Wisdom"));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.INTELLIGENCE, Ability.WISDOM));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.history, Skills.insight, Skills.investigation, Skills.religion), 2);
     }
