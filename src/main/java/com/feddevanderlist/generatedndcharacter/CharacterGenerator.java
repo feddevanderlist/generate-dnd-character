@@ -9,8 +9,8 @@ public class CharacterGenerator {
 
         characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
         characterSheet.set_class(new RandomClass().randomClass(characterSheet));
-        characterSheet.calculateInitiative();
-        characterSheet.calculateHitPoints();
+        characterSheet.finalCalculation();
+
         ImageEditor printableCharacterSheet = new ImageEditor();
         printableCharacterSheet.fillAllFields(characterSheet);
 

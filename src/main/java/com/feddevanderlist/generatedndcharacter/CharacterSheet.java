@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter;
 
 
+import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
 import com.feddevanderlist.generatedndcharacter.race.Race;
 
@@ -15,10 +16,10 @@ public class CharacterSheet {
     private int hitDice;
     private int initiative;
     private int proficiencyBonus;
-    private List<Skills> proficiencies;
+    private final List<Skills> proficiencies;
     private GlobalClass _class;
     private Race race;
-    private List<String> savingThrowProficiencies;
+    private final List<Ability> savingThrowProficiencies;
     private int spellSaveDc;
     private int spellAttackMod;
 
@@ -33,7 +34,6 @@ public class CharacterSheet {
         race = null;
         Ability.init();
         savingThrowProficiencies = new ArrayList<>();
-
     }
 
 
@@ -92,7 +92,7 @@ public class CharacterSheet {
         this.race = race;
     }
 
-    public List<String> getSavingThrowProficiencies() {
+    public List<Ability> getSavingThrowProficiencies() {
         return savingThrowProficiencies;
     }
 
@@ -147,5 +147,18 @@ public class CharacterSheet {
 
     public void calculateSpellAtkMod() {
         this.spellAttackMod = proficiencyBonus + Ability.getPrimaryModifier(_class.getPrimaryAbility());
+    }
+
+    public void finalCalculation() {
+        calculateInitiative();
+        calculateHitPoints();
+        calculateArmorClass();
+    }
+
+    void calculateArmorClass() {
+        if (get_class() instanceof Barbarian) {
+            armorClass += Ability.getConModifier();
+        }
+        armorClass += Ability.getDexModifier();
     }
 }

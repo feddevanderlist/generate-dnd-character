@@ -1,5 +1,6 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.Monk;
 import org.junit.jupiter.api.Test;
 
@@ -17,11 +18,19 @@ class CharacterSheetTest {
         characterSheet.set_class(new Monk(characterSheet));
         assertThat(characterSheet.get_class(), is(notNullValue()));
         assertThat(characterSheet.getHitDice(), is(8));
-        characterSheet.calculateInitiative();
+        characterSheet.finalCalculation();
         assertThat(characterSheet.getInitiative(), is(Ability.getDexModifier()));
-        characterSheet.calculateHitPoints();
         assertThat(characterSheet.getHitPoints(), is(characterSheet.getHitDice() + Ability.getConModifier()));
-
+        assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier()));
+    }
+    @Test
+    void characterBarbarianTest(){
+        CharacterSheet characterSheet = new CharacterSheet();
+        assertThat(characterSheet.getArmorClass(), is(10));
+        characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
+        characterSheet.set_class(new Barbarian(characterSheet));
+        characterSheet.finalCalculation();
+        assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier() + Ability.getConModifier()));
     }
 
 }
