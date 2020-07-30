@@ -15,7 +15,7 @@ public class Tiefling extends Race {
     public Tiefling(CharacterSheet characterSheet) {
         name = "Tiefling";
         age = ThreadLocalRandom.current().nextInt(100);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "medium";
         height = ThreadLocalRandom.current().nextInt(4, 5);
         weight = ThreadLocalRandom.current().nextInt(100, 200);

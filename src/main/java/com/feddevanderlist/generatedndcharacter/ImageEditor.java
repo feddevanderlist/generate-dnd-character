@@ -9,9 +9,9 @@ import java.nio.file.Path;
 
 public class ImageEditor {
 
-    private Graphics graphics;
+    private final Graphics graphics;
     private final BufferedImage image;
-    private Path basePath = Path.of("src\\main\\java\\Resources\\");
+    private final Path basePath = Path.of("src\\main\\java\\Resources\\");
 
     public ImageEditor() throws IOException {
         image = ImageIO.read(new File(basePath + "\\Alt-pg-front.jpg"));
@@ -31,12 +31,12 @@ public class ImageEditor {
         graphics.drawString(race, 698, 230);
     }
 
-    public void addAlingment(String alingment) {
-        graphics.drawString(alingment, 993, 230);
+    public void addAlignment(String alignment) {
+        graphics.drawString(alignment, 993, 230);
     }
 
-    public void addProficiencyBonus(int profiency) {
-        addValueBonusToPicture(profiency, 145, 354);
+    public void addProficiencyBonus(int proficiency) {
+        addValueBonusToPicture(proficiency, 145, 354);
     }
 
     public void addInspiration(int inspiration) {
@@ -119,7 +119,7 @@ public class ImageEditor {
         addHitPoints(characterSheet.getHitPoints());
         addArmorClass(Ability.getDexModifier(), characterSheet.getArmorClass());
         addProficiencyBonus(characterSheet.getProficiencyBonus());
-        addAlingment(characterSheet.getRace().getAlignment());
+        addAlignment(characterSheet.getRace().getAlignment());
 
         addSpeed(characterSheet.getRace().getSpeed());
         addInitiative(Ability.getDexModifier(), false);
@@ -203,7 +203,7 @@ public class ImageEditor {
                     bonus += Ability.getWisModifier();
                     y = 1301;
                 }
-                case peformance -> {
+                case performance -> {
                     bonus += Ability.getChrModifier();
                     y = 1453;
                 }

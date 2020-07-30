@@ -6,10 +6,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Alignment {
     private Alignment(){}
-    private static List<String> alingment = Arrays.asList("Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil");
+    private final static List<String> alignment = Arrays.asList("Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "Neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil");
 
-    public static String getRandomAlingment() {
+    public static String getRandomAlignment() {
 
-        return alingment.get(ThreadLocalRandom.current().nextInt(alingment.size()));
+        return alignment.get(ThreadLocalRandom.current().nextInt(alignment.size()));
     }
 }

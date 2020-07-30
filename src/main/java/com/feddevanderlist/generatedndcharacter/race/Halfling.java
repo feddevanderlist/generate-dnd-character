@@ -16,7 +16,7 @@ public class Halfling extends Race {
     public Halfling(CharacterSheet characterSheet) {
         name = "Halfling";
         age = ThreadLocalRandom.current().nextInt(5, 40);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "small";
         height = ThreadLocalRandom.current().nextDouble(3, 4.5);
         weight = ThreadLocalRandom.current().nextInt(30, 50);

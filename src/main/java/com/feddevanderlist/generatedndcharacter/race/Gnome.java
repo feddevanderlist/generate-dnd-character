@@ -2,7 +2,6 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.Alignment;
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +15,7 @@ public class Gnome extends Race {
     public Gnome() {
         name = "Gnome";
         age = ThreadLocalRandom.current().nextInt(500);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "small";
         height = ThreadLocalRandom.current().nextInt(3, 4);
         weight = ThreadLocalRandom.current().nextInt(30, 50);

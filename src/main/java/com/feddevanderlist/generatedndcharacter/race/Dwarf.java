@@ -16,12 +16,12 @@ public class Dwarf extends Race {
     public Dwarf(CharacterSheet characterSheet) {
         name = "Dwarf";
         age = ThreadLocalRandom.current().nextInt(5, 350);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "medium";
         height = ThreadLocalRandom.current().nextDouble(4, 5);
         weight = ThreadLocalRandom.current().nextInt(100, 200);
         speed = 25;
-        languages.addAll(Arrays.asList("Common", "Dwarvish"));
+        languages.addAll(Arrays.asList("Common", "Dwarfish"));
         traits.addAll(Arrays.asList("Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"));
         chooseSubrace(characterSheet);
         add(Ability.CONSTITUTION,2);

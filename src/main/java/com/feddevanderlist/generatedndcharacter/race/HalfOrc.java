@@ -2,7 +2,6 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.Alignment;
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,7 +14,7 @@ public class HalfOrc extends Race {
     public HalfOrc() {
         name = "Half-Orc";
         age = ThreadLocalRandom.current().nextInt(75);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "medium";
         height = ThreadLocalRandom.current().nextInt(5, 7);
         weight = ThreadLocalRandom.current().nextInt(130, 220);

@@ -18,7 +18,7 @@ public class Race {
     List<String> languages = new ArrayList<>();
     List<String> traits = new ArrayList<>();
     String subrace = null;
-    String gender = g[ThreadLocalRandom.current().nextInt(2)];
+    final String gender = g[ThreadLocalRandom.current().nextInt(2)];
 
 
     public String getName() {

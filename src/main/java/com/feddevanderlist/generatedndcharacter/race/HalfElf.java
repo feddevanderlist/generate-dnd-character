@@ -17,7 +17,7 @@ public class HalfElf extends Race {
     public HalfElf(CharacterSheet characterSheet) {
         name = "Half-Elf";
         age = ThreadLocalRandom.current().nextInt(350);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "medium";
         height = ThreadLocalRandom.current().nextInt(5, 6);
         weight = ThreadLocalRandom.current().nextInt(120, 200);

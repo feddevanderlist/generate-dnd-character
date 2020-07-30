@@ -1,6 +1,5 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

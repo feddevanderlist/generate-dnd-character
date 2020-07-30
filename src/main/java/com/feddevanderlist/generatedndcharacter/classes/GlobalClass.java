@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GlobalClass {
-    List<String> weaponProficiencies = new ArrayList<>();
-    List<String> armorProfieciencies = new ArrayList<>();
-    List<Ability> primaryAbility = new ArrayList<>();
+    final List<String> weaponProficiencies = new ArrayList<>();
+    final List<String> armorProficiencies = new ArrayList<>();
+    final List<Ability> primaryAbility = new ArrayList<>();
     String name;
 
     public String getName() {
@@ -19,8 +19,8 @@ public class GlobalClass {
         return weaponProficiencies;
     }
 
-    public List<String> getArmorProfieciencies() {
-        return armorProfieciencies;
+    public List<String> getArmorProficiencies() {
+        return armorProficiencies;
     }
 
     public List<Ability> getPrimaryAbility() {

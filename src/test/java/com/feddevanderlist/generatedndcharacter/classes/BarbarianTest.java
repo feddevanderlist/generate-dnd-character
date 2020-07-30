@@ -2,7 +2,6 @@ package com.feddevanderlist.generatedndcharacter.classes;
 
 import com.feddevanderlist.generatedndcharacter.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.Skills;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +20,7 @@ class BarbarianTest {
         MatcherAssert.assertThat(characterSheet.getProficiencies().size(), is(2));
         MatcherAssert.assertThat(characterSheet.getProficiencies().size(), is(2) );
         MatcherAssert.assertThat(characterSheet.getSavingThrowProficiencies(), contains(Ability.STRENGTH,Ability.CONSTITUTION));
-        MatcherAssert.assertThat(barbarian.getArmorProfieciencies().size(), is(3));
+        MatcherAssert.assertThat(barbarian.getArmorProficiencies().size(), is(3));
         MatcherAssert.assertThat(barbarian.getWeaponProficiencies().size(), is(2));
         MatcherAssert.assertThat(barbarian.getPrimaryAbility(), hasItem(Ability.STRENGTH));
     }
