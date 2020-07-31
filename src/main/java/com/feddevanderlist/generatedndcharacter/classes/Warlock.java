@@ -3,6 +3,7 @@ package com.feddevanderlist.generatedndcharacter.classes;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.ArmorType;
 import com.feddevanderlist.generatedndcharacter.models.Skills;
 import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 
@@ -13,7 +14,7 @@ public class Warlock extends GlobalClass {
         name = "Warlock";
         characterSheet.setHitDice(8);
         primaryAbility.add(Ability.CHARISMA);
-        armorProficiencies.add("Light");
+        armorProficiencies.add(ArmorType.LIGHT);
         weaponProficiencies.add(WeaponType.SIMPLE);
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.CHARISMA, Ability.WISDOM));
         characterSheet.addProficiencyBonus(2);

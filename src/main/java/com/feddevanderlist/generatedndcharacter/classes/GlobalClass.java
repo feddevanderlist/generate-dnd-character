@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.ArmorType;
 import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class GlobalClass {
     final List<WeaponType> weaponProficiencies = new ArrayList<>();
-    final List<String> armorProficiencies = new ArrayList<>();
+    final List<ArmorType> armorProficiencies = new ArrayList<>();
     final List<Ability> primaryAbility = new ArrayList<>();
     String name;
 
@@ -20,7 +21,7 @@ public class GlobalClass {
         return weaponProficiencies;
     }
 
-    public List<String> getArmorProficiencies() {
+    public List<ArmorType> getArmorProficiencies() {
         return armorProficiencies;
     }
 
