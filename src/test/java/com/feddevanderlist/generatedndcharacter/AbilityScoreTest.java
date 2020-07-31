@@ -1,8 +1,9 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.models.Ability;
 import org.junit.jupiter.api.Test;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.*;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 

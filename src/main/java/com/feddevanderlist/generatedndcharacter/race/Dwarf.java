@@ -1,14 +1,15 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.Ability;
-import com.feddevanderlist.generatedndcharacter.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.Languages;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.add;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Dwarf extends Race {
@@ -21,7 +22,7 @@ public class Dwarf extends Race {
         height = ThreadLocalRandom.current().nextDouble(4, 5);
         weight = ThreadLocalRandom.current().nextInt(100, 200);
         speed = 25;
-        languages.addAll(Arrays.asList("Common", "Dwarfish"));
+        languages.addAll(Arrays.asList(Languages.CO, Languages.DW));
         traits.addAll(Arrays.asList("Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"));
         chooseSubrace(characterSheet);
         add(Ability.CONSTITUTION,2);

@@ -1,13 +1,14 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.Ability;
-import com.feddevanderlist.generatedndcharacter.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Languages;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.add;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Gnome extends Race {
@@ -20,7 +21,7 @@ public class Gnome extends Race {
         height = ThreadLocalRandom.current().nextInt(3, 4);
         weight = ThreadLocalRandom.current().nextInt(30, 50);
         speed = 25;
-        languages.addAll(Arrays.asList("Common", "Gnomish"));
+        languages.addAll(Arrays.asList(Languages.CO, Languages.GN));
         traits.addAll(Arrays.asList("Darkvision", "Gnome Cunning"));
         chooseSubrace();
         add(Ability.INTELLIGENCE, 2);

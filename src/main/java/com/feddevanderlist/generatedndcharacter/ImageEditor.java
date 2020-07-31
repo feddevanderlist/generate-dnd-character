@@ -1,5 +1,9 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Skills;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,14 +15,12 @@ public class ImageEditor {
 
     private final Graphics graphics;
     private final BufferedImage image;
-    private final Path basePath = Path.of("src\\main\\java\\Resources\\");
+    private final Path basePath = Path.of("src\\main\\Resources\\");
 
     public ImageEditor() throws IOException {
         image = ImageIO.read(new File(basePath + "\\Alt-pg-front.jpg"));
         graphics = image.getGraphics();
         graphics.setColor(Color.BLACK);
-
-
     }
 
     public void addClassAndLevelToSheet(String classname) {
@@ -31,8 +33,8 @@ public class ImageEditor {
         graphics.drawString(race, 698, 230);
     }
 
-    public void addAlignment(String alignment) {
-        graphics.drawString(alignment, 993, 230);
+    public void addAlignment(Alignment alignment) {
+        graphics.drawString(alignment.fullName, 993, 230);
     }
 
     public void addProficiencyBonus(int proficiency) {

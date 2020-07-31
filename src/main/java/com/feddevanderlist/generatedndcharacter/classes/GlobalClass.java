@@ -1,6 +1,6 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
-import com.feddevanderlist.generatedndcharacter.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
 
 import java.util.ArrayList;
 import java.util.List;

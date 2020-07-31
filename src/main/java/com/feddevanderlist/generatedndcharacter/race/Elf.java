@@ -1,12 +1,16 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.*;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Languages;
+import com.feddevanderlist.generatedndcharacter.models.Skills;
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.add;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Elf extends Race {
@@ -19,7 +23,7 @@ public class Elf extends Race {
         height = ThreadLocalRandom.current().nextDouble(4.5, 6.2);
         weight = ThreadLocalRandom.current().nextInt(100, 145);
         speed = 30;
-        languages.addAll(Arrays.asList("Common", "Elvish"));
+        languages.addAll(Arrays.asList(Languages.CO, Languages.EL));
         traits.addAll(Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
         characterSheet.getProficiencies().add(Skills.perception);
         chooseSubrace(characterSheet);

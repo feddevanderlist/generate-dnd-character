@@ -3,6 +3,8 @@ package com.feddevanderlist.generatedndcharacter;
 
 import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Skills;
 import com.feddevanderlist.generatedndcharacter.race.Race;
 
 import java.util.ArrayList;
