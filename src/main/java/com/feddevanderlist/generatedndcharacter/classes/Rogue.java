@@ -4,6 +4,7 @@ package com.feddevanderlist.generatedndcharacter.classes;
 import com.feddevanderlist.generatedndcharacter.models.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Skills;
+import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 
 import java.util.Arrays;
 
@@ -12,7 +13,7 @@ public class Rogue extends GlobalClass {
         name = "Rogue";
         characterSheet.setHitDice(8);
         primaryAbility.add(Ability.DEXTERITY);
-        weaponProficiencies.addAll(Arrays.asList("Hand crossbows", "longswords", "rapiers", "shortswords"));
+        weaponProficiencies.addAll(Arrays.asList(WeaponType.HC, WeaponType.LS, WeaponType.RAPIER, WeaponType.SH));
         armorProficiencies.add("Light");
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.DEXTERITY, Ability.INTELLIGENCE));
         characterSheet.addProficiencyBonus(2);

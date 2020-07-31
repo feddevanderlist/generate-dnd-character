@@ -2,7 +2,7 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.Languages;
+import com.feddevanderlist.generatedndcharacter.models.Language;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Dragonborn extends Race {
         height = ThreadLocalRandom.current().nextDouble(6, 8);
         weight = ThreadLocalRandom.current().nextInt(200, 300);
         speed = 30;
-        languages = Arrays.asList(Languages.CO, Languages.DR);
+        languages = Arrays.asList(Language.CO, Language.DR);
         traits = Arrays.asList("Breath Weapon", "Damage Resistance");
         draconicAncestry();
         add(Ability.STRENGTH,2);

@@ -2,7 +2,7 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.Languages;
+import com.feddevanderlist.generatedndcharacter.models.Language;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Race {
     double height;
     int weight;
     int speed;
-    List<Languages> languages = new ArrayList<>();
+    List<Language> languages = new ArrayList<>();
     List<String> traits = new ArrayList<>();
     String subrace = null;
     final String gender = g[ThreadLocalRandom.current().nextInt(2)];
@@ -52,7 +52,7 @@ public class Race {
         return speed;
     }
 
-    public List<Languages> getLanguages() {
+    public List<Language> getLanguages() {
         return languages;
     }
 

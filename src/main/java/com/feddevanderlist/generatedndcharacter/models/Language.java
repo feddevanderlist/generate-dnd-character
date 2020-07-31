@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public enum Languages {
+public enum Language {
     AB("Abyssal"),
     AQ("Aquan"),
     AU("Auran"),
@@ -29,25 +29,25 @@ public enum Languages {
     TE("Terran"),
     UN("Undercommon");
 
-    public String languageName;
+    public final String languageName;
 
-    Languages(String languageName) {
+    Language(String languageName) {
         this.languageName = languageName;
     }
 
-    public static Languages getRandomLanguage(List<Languages> learned) {
-        List<Languages> allLanguages = new ArrayList<>(Arrays.asList(values()));
+    public static Language getRandomLanguage(List<Language> learned) {
+        List<Language> allLanguages = new ArrayList<>(Arrays.asList(values()));
         if (!learned.isEmpty()) {
             allLanguages.removeAll(learned);
         }
         return allLanguages.get(ThreadLocalRandom.current().nextInt(allLanguages.size()));
     }
 
-    public static List<Languages> getRandomLanguage(Languages learned) {
-        Languages extraLanguage;
-        List<Languages> languagesList = new ArrayList<>(Arrays.asList(values()));
+    public static List<Language> getRandomLanguage(Language learned) {
+        Language extraLanguage;
+        List<Language> languageList = new ArrayList<>(Arrays.asList(values()));
         do {
-            extraLanguage = languagesList.get(ThreadLocalRandom.current().nextInt(languagesList.size()));
+            extraLanguage = languageList.get(ThreadLocalRandom.current().nextInt(languageList.size()));
         }
         while (learned.equals(extraLanguage));
 

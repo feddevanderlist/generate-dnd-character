@@ -3,6 +3,7 @@ package com.feddevanderlist.generatedndcharacter.classes;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
 import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 
 import java.util.Arrays;
 
@@ -11,8 +12,8 @@ public class Bard extends GlobalClass {
         name = "Bard";
         characterSheet.setHitDice(8);
         primaryAbility.add( Ability.CHARISMA);
-        weaponProficiencies.add("Light");
-        armorProficiencies.addAll(Arrays.asList("Simple", "Hand Crossbows", "Longsword", "Rapiers", "Shortswords"));
+        armorProficiencies.add("Light");
+        weaponProficiencies.addAll(Arrays.asList(WeaponType.SIMPLE, WeaponType.HC, WeaponType.LS, WeaponType.RAPIER, WeaponType.SH));
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.DEXTERITY, Ability.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkills(3);

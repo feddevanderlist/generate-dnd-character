@@ -14,13 +14,14 @@ public enum Alignment {
     LE("Lawful evil"),
     NE("Neutral evil"),
     CE("Chaotic evil");
-    public String fullName;
+    public final String fullName;
+
     Alignment(String fullName) {
         this.fullName = fullName;
     }
 
     public static Alignment getRandomAlignment() {
         List<Alignment> alignmentList = Arrays.asList(values());
-        return  alignmentList.get(ThreadLocalRandom.current().nextInt(alignmentList.size()));
+        return alignmentList.get(ThreadLocalRandom.current().nextInt(alignmentList.size()));
     }
 }

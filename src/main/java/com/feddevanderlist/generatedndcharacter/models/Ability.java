@@ -3,6 +3,7 @@ package com.feddevanderlist.generatedndcharacter.models;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+@SuppressWarnings("SameParameterValue")
 public enum Ability {
     STRENGTH(0, "strength"),
     DEXTERITY(0, "dexterity"),
