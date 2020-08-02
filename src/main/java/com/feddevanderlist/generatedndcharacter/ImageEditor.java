@@ -11,7 +11,7 @@ public class ImageEditor {
 
     private Graphics graphics;
     private final BufferedImage image;
-    private Path basePath = Path.of("src\\main\\java\\Resources\\");
+    private Path basePath = Path.of("src\\main\\resources\\");
 
     public ImageEditor() throws IOException {
         image = ImageIO.read(new File(basePath + "\\Alt-pg-front.jpg"));
@@ -221,7 +221,7 @@ public class ImageEditor {
                 }
                 case stealth -> {
                     bonus += Ability.getDexModifier();
-                    y = 742;
+                    y = 746;
                 }
                 case survival -> {
                     bonus += Ability.getWisModifier();
