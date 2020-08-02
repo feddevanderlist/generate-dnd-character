@@ -1,26 +1,28 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
-import com.feddevanderlist.generatedndcharacter.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.ArmorType;
+import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GlobalClass {
-    List<String> weaponProficiencies = new ArrayList<>();
-    List<String> armorProfieciencies = new ArrayList<>();
-    List<Ability> primaryAbility = new ArrayList<>();
+    final List<WeaponType> weaponProficiencies = new ArrayList<>();
+    final List<ArmorType> armorProficiencies = new ArrayList<>();
+    final List<Ability> primaryAbility = new ArrayList<>();
     String name;
 
     public String getName() {
         return name;
     }
 
-    public List<String> getWeaponProficiencies() {
+    public List<WeaponType> getWeaponProficiencies() {
         return weaponProficiencies;
     }
 
-    public List<String> getArmorProfieciencies() {
-        return armorProfieciencies;
+    public List<ArmorType> getArmorProficiencies() {
+        return armorProficiencies;
     }
 
     public List<Ability> getPrimaryAbility() {

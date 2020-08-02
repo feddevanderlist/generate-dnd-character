@@ -15,7 +15,7 @@ class ChooseRaceTest {
         assertThat(race, is(not(nullValue())));
         assertThat(race.getName(), is(not(emptyString())));
         assertThat(race.getAge(), is(not(nullValue())));
-        assertThat(race.getAlignment(), is(not(emptyString())));
+        assertThat(race.getAlignment().name(), is(not(emptyString())));
         assertThat(race.getGender(), is(not(emptyString())));
         assertThat(race.getWeight(), is(not(nullValue())));
         assertThat(race.getHeight(), is(not(nullValue())));

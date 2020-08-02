@@ -1,8 +1,9 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.models.Ability;
 import org.junit.jupiter.api.Test;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.*;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -87,7 +88,7 @@ class AbilityScoreTest {
     @Test
     void rounding() {
         int i;
-        for (i = 1; i < 30; i++) {
+        for (i = 1; i <= 30; i++) {
             switch (i) {
                 case 1 -> assertThat(Math.floor((i - 10F) / 2), is(-5.0));
                 case 2, 3 -> assertThat(Math.floor((i - 10F) / 2), is(-4.0));
@@ -108,7 +109,7 @@ class AbilityScoreTest {
                 default -> throw new ArithmeticException("the calculation went wrong");
             }
         }
-        assertThat(i, is(30));
+        assertThat(i, is(31));
     }
 
     @Test

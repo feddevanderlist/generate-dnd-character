@@ -1,8 +1,9 @@
-package com.feddevanderlist.generatedndcharacter;
+package com.feddevanderlist.generatedndcharacter.models;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+@SuppressWarnings("SameParameterValue")
 public enum Ability {
     STRENGTH(0, "strength"),
     DEXTERITY(0, "dexterity"),
@@ -44,8 +45,8 @@ public enum Ability {
         }
     }
 
-    int value;
-    String name;
+    public int value;
+    public String name;
 
     Ability(int value, String name) {
         this.name = name;
@@ -73,7 +74,7 @@ public enum Ability {
         }
     }
 
-    static int rolAbilityScore() {
+   public static int rolAbilityScore() {
         ArrayList<Integer> rolls = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             rolls.add(ThreadLocalRandom.current().nextInt(1, 7));

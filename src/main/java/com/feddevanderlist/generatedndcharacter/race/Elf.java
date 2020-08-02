@@ -1,12 +1,16 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.*;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Language;
+import com.feddevanderlist.generatedndcharacter.models.Skills;
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.Ability.add;
+import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Elf extends Race {
@@ -14,12 +18,12 @@ public class Elf extends Race {
     public Elf(CharacterSheet characterSheet) {
         name = "Elf";
         age = ThreadLocalRandom.current().nextInt(5, 750);
-        alignment = Alignment.getRandomAlingment();
+        alignment = Alignment.getRandomAlignment();
         size = "medium";
         height = ThreadLocalRandom.current().nextDouble(4.5, 6.2);
         weight = ThreadLocalRandom.current().nextInt(100, 145);
         speed = 30;
-        languages.addAll(Arrays.asList("Common", "Elvish"));
+        languages.addAll(Arrays.asList(Language.CO, Language.EL));
         traits.addAll(Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
         characterSheet.getProficiencies().add(Skills.perception);
         chooseSubrace(characterSheet);
@@ -33,7 +37,7 @@ public class Elf extends Race {
             add(Ability.INTELLIGENCE, 1);
             characterSheet.addHitPoints(1);
             traits.add("Elf Weapon Training");
-            languages.add(Languages.getRandomLanguage(languages));
+            languages.add(Language.getRandomLanguage(languages));
         } else if (subrace.equals("Wood Elf")) {
             add(Ability.WISDOM, 1);
             traits.addAll(Arrays.asList("Elf Weapon Training", "Mask of the Wild"));

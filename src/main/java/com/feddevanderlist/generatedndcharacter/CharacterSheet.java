@@ -3,6 +3,8 @@ package com.feddevanderlist.generatedndcharacter;
 
 import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
+import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.Skills;
 import com.feddevanderlist.generatedndcharacter.race.Race;
 
 import java.util.ArrayList;
@@ -121,15 +123,15 @@ public class CharacterSheet {
     }
 
     public void addRandomSkills(int amount) {
-        List<Skills> allSkils = new ArrayList<>(Arrays.asList(Skills.values()));
+        List<Skills> allSkills = new ArrayList<>(Arrays.asList(Skills.values()));
         if (!proficiencies.isEmpty()) {
-            allSkils.removeAll(proficiencies);
+            allSkills.removeAll(proficiencies);
         }
         for (int i = 0; i < amount; i++) {
-            int random = ThreadLocalRandom.current().nextInt(allSkils.size());
-            Skills skill = allSkils.get(random);
+            int random = ThreadLocalRandom.current().nextInt(allSkills.size());
+            Skills skill = allSkills.get(random);
             proficiencies.add(skill);
-            allSkils.remove(skill);
+            allSkills.remove(skill);
         }
     }
 

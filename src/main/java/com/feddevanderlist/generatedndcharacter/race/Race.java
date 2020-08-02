@@ -1,6 +1,9 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
 
+import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Language;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -10,15 +13,15 @@ public class Race {
 
     String name;
     int age;
-    String alignment;
+    Alignment alignment;
     String size;
     double height;
     int weight;
     int speed;
-    List<String> languages = new ArrayList<>();
+    List<Language> languages = new ArrayList<>();
     List<String> traits = new ArrayList<>();
     String subrace = null;
-    String gender = g[ThreadLocalRandom.current().nextInt(2)];
+    final String gender = g[ThreadLocalRandom.current().nextInt(2)];
 
 
     public String getName() {
@@ -29,7 +32,7 @@ public class Race {
         return age;
     }
 
-    public String getAlignment() {
+    public Alignment getAlignment() {
         return alignment;
     }
 
@@ -49,7 +52,7 @@ public class Race {
         return speed;
     }
 
-    public List<String> getLanguages() {
+    public List<Language> getLanguages() {
         return languages;
     }
 
