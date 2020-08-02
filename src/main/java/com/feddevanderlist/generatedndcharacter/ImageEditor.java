@@ -139,14 +139,7 @@ public class ImageEditor {
         ) {
             sb.append(wp.typeName).append(", \r\n");
         }
-        sb.deleteCharAt(sb.lastIndexOf(","));
-        if (sb.length() > 50) {
-            int split = sb.lastIndexOf(",", 50) + 2;
-            graphics.drawString(sb.substring(0, split), 1055, ImageCoordinates.getFirstFeatureLine());
-            graphics.drawString(sb.substring(split), 1055, ImageCoordinates.getFirstFeatureLine());
-        } else {
-            graphics.drawString(sb.toString(), 1055, ImageCoordinates.getFirstFeatureLine());
-        }
+        writeStringToFeatureCoordinates(sb);
     }
 
     private void addArmorProficiencies(List<ArmorType> armorProficiencies) {
@@ -157,14 +150,18 @@ public class ImageEditor {
             ) {
                 sb.append(at.typeName).append(", \r\n");
             }
-            sb.deleteCharAt(sb.lastIndexOf(","));
-            if (sb.length() > 50) {
-                int split = sb.lastIndexOf(",", 50) + 2;
-                graphics.drawString(sb.substring(0, split), 1055, ImageCoordinates.getFirstFeatureLine());
-                graphics.drawString(sb.substring(split), 1055, ImageCoordinates.getFirstFeatureLine());
-            } else {
-                graphics.drawString(sb.toString(), 1055, ImageCoordinates.getFirstFeatureLine());
-            }
+            writeStringToFeatureCoordinates(sb);
+        }
+    }
+
+    private void writeStringToFeatureCoordinates(StringBuilder sb) {
+        sb.deleteCharAt(sb.lastIndexOf(","));
+        if (sb.length() > 50) {
+            int split = sb.lastIndexOf(",", 50) + 2;
+            graphics.drawString(sb.substring(0, split), 1055, ImageCoordinates.getFirstFeatureLine());
+            graphics.drawString(sb.substring(split), 1055, ImageCoordinates.getFirstFeatureLine());
+        } else {
+            graphics.drawString(sb.toString(), 1055, ImageCoordinates.getFirstFeatureLine());
         }
     }
 
