@@ -1,5 +1,8 @@
 package com.feddevanderlist.generatedndcharacter.models;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum ArmorType {
     LIGHT("Light"),
     MEDIUM("Medium"),
@@ -13,5 +16,16 @@ public enum ArmorType {
 
     ArmorType(String typeName) {
         this.typeName = typeName;
+    }
+
+    public static List<ArmorType> getAllArmor() {
+        return Arrays.asList(LIGHT, MEDIUM, HEAVY, SHIELD);
+    }
+
+    public static List<ArmorType> getNonMetalArmor() {
+        return Arrays.asList(NMLIGHT, NMMEDIUM, NMSHIELD);
+    }
+    public static List<ArmorType> getNotHeavyArmor() {
+        return Arrays.asList(LIGHT, MEDIUM, SHIELD);
     }
 }

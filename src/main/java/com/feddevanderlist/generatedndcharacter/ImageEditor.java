@@ -1,8 +1,6 @@
 package com.feddevanderlist.generatedndcharacter;
 
-import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.Skills;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,17 +8,37 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 
 public class ImageEditor {
 
     private final Graphics graphics;
     private final BufferedImage image;
-    private final Path basePath = Path.of("src\\main\\Resources\\");
+    private final Path basePath = Path.of("src\\main\\resources\\");
+
 
     public ImageEditor() throws IOException {
         image = ImageIO.read(new File(basePath + "\\Alt-pg-front.jpg"));
         graphics = image.getGraphics();
         graphics.setColor(Color.BLACK);
+    }
+
+    public void fillAllFields(CharacterSheet characterSheet) {
+        addClassAndLevelToSheet(characterSheet.get_class().getName());
+        addRace(characterSheet.getRace().getName());
+        addAbilityScores();
+        addHitPoints(characterSheet.getHitPoints());
+        addArmorClass(Ability.getDexModifier(), characterSheet.getArmorClass());
+        addProficiencyBonus(characterSheet.getProficiencyBonus());
+        addAlignment(characterSheet.getRace().getAlignment());
+
+        addSpeed(characterSheet.getRace().getSpeed());
+        addInitiative(Ability.getDexModifier(), false);
+        addSpellSaveDC(characterSheet.getSpellSaveDc());
+        addAttackMod(characterSheet.getSpellAttackMod());
+        addSavingThrowsAndSkills(characterSheet);
+        addWeaponProficiencies(characterSheet.get_class().getWeaponProficiencies());
+        addArmorProficiencies(characterSheet.get_class().getArmorProficiencies());
     }
 
     public void addClassAndLevelToSheet(String classname) {
@@ -114,21 +132,40 @@ public class ImageEditor {
         graphics.drawString(String.valueOf(value), x, y);
     }
 
-    public void fillAllFields(CharacterSheet characterSheet) {
-        addClassAndLevelToSheet(characterSheet.get_class().getName());
-        addRace(characterSheet.getRace().getName());
-        addAbilityScores();
-        addHitPoints(characterSheet.getHitPoints());
-        addArmorClass(Ability.getDexModifier(), characterSheet.getArmorClass());
-        addProficiencyBonus(characterSheet.getProficiencyBonus());
-        addAlignment(characterSheet.getRace().getAlignment());
+    private void addWeaponProficiencies(List<WeaponType> weaponTypeList) {
+        graphics.drawString("Weapon Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
+        StringBuilder sb = new StringBuilder();
+        for (WeaponType wp : weaponTypeList
+        ) {
+            sb.append(wp.typeName).append(", \r\n");
+        }
+        sb.deleteCharAt(sb.lastIndexOf(","));
+        if (sb.length() > 50) {
+            int split = sb.lastIndexOf(",", 50) + 2;
+            graphics.drawString(sb.substring(0, split), 1055, ImageCoordinates.getFirstFeatureLine());
+            graphics.drawString(sb.substring(split), 1055, ImageCoordinates.getFirstFeatureLine());
+        } else {
+            graphics.drawString(sb.toString(), 1055, ImageCoordinates.getFirstFeatureLine());
+        }
+    }
 
-        addSpeed(characterSheet.getRace().getSpeed());
-        addInitiative(Ability.getDexModifier(), false);
-        addSpellSaveDC(characterSheet.getSpellSaveDc());
-        addAttackMod(characterSheet.getSpellAttackMod());
-        addSavingThrowsAndSkills(characterSheet);
-
+    private void addArmorProficiencies(List<ArmorType> armorProficiencies) {
+        if (armorProficiencies.size() != 0) {
+            graphics.drawString("Armor Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
+            StringBuilder sb = new StringBuilder();
+            for (ArmorType at : armorProficiencies
+            ) {
+                sb.append(at.typeName).append(", \r\n");
+            }
+            sb.deleteCharAt(sb.lastIndexOf(","));
+            if (sb.length() > 50) {
+                int split = sb.lastIndexOf(",", 50) + 2;
+                graphics.drawString(sb.substring(0, split), 1055, ImageCoordinates.getFirstFeatureLine());
+                graphics.drawString(sb.substring(split), 1055, ImageCoordinates.getFirstFeatureLine());
+            } else {
+                graphics.drawString(sb.toString(), 1055, ImageCoordinates.getFirstFeatureLine());
+            }
+        }
     }
 
     private void addSavingThrowsAndSkills(CharacterSheet characterSheet) {
@@ -232,7 +269,6 @@ public class ImageEditor {
             }
             addValueBonusToPicture(bonus, x, y);
         }
-
     }
 
     public void addWisSave(int proficiency) {
@@ -263,5 +299,4 @@ public class ImageEditor {
         graphics.dispose();
         ImageIO.write(image, "jpg", new File(basePath + "\\test.jpg"));
     }
-
 }
