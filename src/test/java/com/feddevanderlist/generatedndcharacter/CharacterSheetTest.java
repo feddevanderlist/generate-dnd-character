@@ -22,10 +22,11 @@ class CharacterSheetTest {
         characterSheet.finalCalculation();
         assertThat(characterSheet.getInitiative(), is(Ability.getDexModifier()));
         assertThat(characterSheet.getHitPoints(), is(characterSheet.getHitDice() + Ability.getConModifier()));
-        assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier()));
+        assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier() + Ability.getWisModifier()));
     }
+
     @Test
-    void characterBarbarianTest(){
+    void characterBarbarianTest() {
         CharacterSheet characterSheet = new CharacterSheet();
         assertThat(characterSheet.getArmorClass(), is(10));
         characterSheet.setRace(new ChooseRace().randomRace(characterSheet));

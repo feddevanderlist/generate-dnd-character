@@ -78,7 +78,6 @@ class AbilityScoreTest {
 
     @Test
     void rolAbilityScore() {
-
         for (int i = 0; i < 5000; i++) {
             int result = Ability.rolAbilityScore();
             assertThat(result, allOf(greaterThan(2), lessThan(19)));
