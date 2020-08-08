@@ -60,12 +60,14 @@ public enum Ability {
     }
 
     public static void init() {
-        STRENGTH.value = rolAbilityScore();
-        DEXTERITY.value = rolAbilityScore();
-        CONSTITUTION.value = rolAbilityScore();
-        INTELLIGENCE.value = rolAbilityScore();
-        WISDOM.value = rolAbilityScore();
-        CHARISMA.value = rolAbilityScore();
+        while (calcTotal() < 70) {
+            STRENGTH.value = rolAbilityScore();
+            DEXTERITY.value = rolAbilityScore();
+            CONSTITUTION.value = rolAbilityScore();
+            INTELLIGENCE.value = rolAbilityScore();
+            WISDOM.value = rolAbilityScore();
+            CHARISMA.value = rolAbilityScore();
+        }
     }
 
     public static void addOneToAll() {
@@ -74,7 +76,7 @@ public enum Ability {
         }
     }
 
-   public static int rolAbilityScore() {
+    public static int rolAbilityScore() {
         ArrayList<Integer> rolls = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             rolls.add(ThreadLocalRandom.current().nextInt(1, 7));
@@ -82,6 +84,14 @@ public enum Ability {
         rolls.remove(Collections.min(rolls));
 
         return rolls.stream().mapToInt(Integer::intValue).sum();
+    }
+
+    public static int calcTotal() {
+        int sum = 0;
+        for (Ability ability : values()) {
+            sum += ability.value;
+        }
+        return sum;
     }
 
     public static int getIntModifier() {
