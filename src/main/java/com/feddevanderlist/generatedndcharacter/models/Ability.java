@@ -16,7 +16,7 @@ public enum Ability {
 
     static {
         for (Ability a : values()) {
-            BY_NAME.put(a.name, a);
+            BY_NAME.put(a.fullname, a);
         }
     }
 
@@ -46,10 +46,10 @@ public enum Ability {
     }
 
     public int value;
-    public String name;
+    public String fullname;
 
-    Ability(int value, String name) {
-        this.name = name;
+    Ability(int value, String abilityName) {
+        this.fullname = abilityName;
         this.value = value;
     }
 

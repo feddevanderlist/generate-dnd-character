@@ -42,6 +42,7 @@ public class ImageCoordinates {
             1933
     ));
 
+    private ImageCoordinates(){}
 
     public static int getFirstFeatureLine() {
         int result = featureLines.get(0);
