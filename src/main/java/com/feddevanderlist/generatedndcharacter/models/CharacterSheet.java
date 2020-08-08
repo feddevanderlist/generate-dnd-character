@@ -173,5 +173,4 @@ public class CharacterSheet {
     public void addLanguage(List<Language> languageList) {
         this.languageList.addAll(languageList);
     }
-
 }

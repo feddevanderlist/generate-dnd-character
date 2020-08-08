@@ -61,7 +61,7 @@ public enum Ability {
         return rolls.stream().mapToInt(Integer::intValue).sum();
     }
 
-    public static int calcTotal() {
+    private static int calcTotal() {
         int sum = 0;
         for (Ability ability : values()) {
             sum += ability.value;
@@ -70,7 +70,7 @@ public enum Ability {
     }
 
     public static Ability findByName(String name) {
-        return BY_NAME.get(name);
+        return BY_NAME.get(name.toLowerCase());
     }
 
     public static int getPrimaryModifier(List<Ability> primaryAbility) {
