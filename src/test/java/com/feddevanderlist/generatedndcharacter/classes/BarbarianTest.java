@@ -1,7 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 

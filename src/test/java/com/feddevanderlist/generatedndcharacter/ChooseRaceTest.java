@@ -1,5 +1,6 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.race.Race;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ class ChooseRaceTest {
         assertThat(race.getGender(), is(not(emptyString())));
         assertThat(race.getWeight(), is(not(nullValue())));
         assertThat(race.getHeight(), is(not(nullValue())));
-        assertThat(race.getLanguages(), is(not(nullValue())));
+        assertThat(characterSheet.getLanguages(), is(not(nullValue())));
         assertThat(race.getSpeed(), is(not(nullValue())));
         assertThat(race.getTraits(), is(not(nullValue())));
         assertThat(race.getSize(), is(not(nullValue())));

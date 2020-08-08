@@ -2,7 +2,7 @@ package com.feddevanderlist.generatedndcharacter.classes;
 
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.ArmorType;
 import com.feddevanderlist.generatedndcharacter.models.Skills;
 import com.feddevanderlist.generatedndcharacter.models.WeaponType;

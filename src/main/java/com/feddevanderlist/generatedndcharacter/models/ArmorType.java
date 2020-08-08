@@ -3,6 +3,7 @@ package com.feddevanderlist.generatedndcharacter.models;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("SpellCheckingInspection")
 public enum ArmorType {
     LIGHT("Light"),
     MEDIUM("Medium"),

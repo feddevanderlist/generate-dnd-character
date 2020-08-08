@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter;
 
 import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

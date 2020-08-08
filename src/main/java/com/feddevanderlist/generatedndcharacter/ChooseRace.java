@@ -1,6 +1,7 @@
 package com.feddevanderlist.generatedndcharacter;
 
 
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.race.*;
 
 import java.util.Arrays;
@@ -21,10 +22,10 @@ public class ChooseRace {
             case "Elf" -> new Elf(characterSheet);
             case "Halfling" -> new Halfling(characterSheet);
             case "Human" -> new Human(characterSheet);
-            case "Dragonborn" -> new Dragonborn();
-            case "Gnome" -> new Gnome();
+            case "Dragonborn" -> new Dragonborn(characterSheet);
+            case "Gnome" -> new Gnome(characterSheet);
             case "Half_Elf" -> new HalfElf(characterSheet);
-            case "Half_Orc" -> new HalfOrc();
+            case "Half_Orc" -> new HalfOrc(characterSheet);
             case "Tiefling" -> new Tiefling(characterSheet);
             default -> null;
         };

@@ -39,6 +39,7 @@ public class ImageEditor {
         addSavingThrowsAndSkills(characterSheet);
         addWeaponProficiencies(characterSheet.get_class().getWeaponProficiencies());
         addArmorProficiencies(characterSheet.get_class().getArmorProficiencies());
+        addLanguageProficiencies(characterSheet.getLanguages());
     }
 
     public void addClassAndLevelToSheet(String classname) {
@@ -133,6 +134,8 @@ public class ImageEditor {
     }
 
     private void addWeaponProficiencies(List<WeaponType> weaponTypeList) {
+        if (weaponTypeList.isEmpty()) return;
+
         graphics.drawString("Weapon Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
         StringBuilder sb = new StringBuilder();
         for (WeaponType wp : weaponTypeList
@@ -142,17 +145,28 @@ public class ImageEditor {
         writeStringToFeatureCoordinates(sb);
     }
 
-    private void addArmorProficiencies(List<ArmorType> armorProficiencies) {
-        if (armorProficiencies.size() != 0) {
-            graphics.drawString("Armor Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
-            StringBuilder sb = new StringBuilder();
-            for (ArmorType at : armorProficiencies
-            ) {
-                sb.append(at.typeName).append(", \r\n");
-            }
-            writeStringToFeatureCoordinates(sb);
+    private void addLanguageProficiencies(List<Language> languageList) {
+        if (languageList.isEmpty()) return;
+        graphics.drawString("Language Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
+        StringBuilder sb = new StringBuilder();
+        for (Language l : languageList
+        ) {
+            sb.append(l.languageName).append(", \r\n");
         }
+        writeStringToFeatureCoordinates(sb);
     }
+
+    private void addArmorProficiencies(List<ArmorType> armorProficiencies) {
+        if (armorProficiencies.isEmpty()) return;
+        graphics.drawString("Armor Proficiency: ", 1055, ImageCoordinates.getFirstFeatureLine());
+        StringBuilder sb = new StringBuilder();
+        for (ArmorType at : armorProficiencies
+        ) {
+            sb.append(at.typeName).append(", \r\n");
+        }
+        writeStringToFeatureCoordinates(sb);
+    }
+
 
     private void writeStringToFeatureCoordinates(StringBuilder sb) {
         sb.deleteCharAt(sb.lastIndexOf(","));

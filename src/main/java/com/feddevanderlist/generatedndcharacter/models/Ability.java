@@ -16,40 +16,15 @@ public enum Ability {
 
     static {
         for (Ability a : values()) {
-            BY_NAME.put(a.fullname, a);
-        }
-    }
-
-    public static Ability findByName(String name) {
-        return BY_NAME.get(name);
-    }
-
-    public static int getPrimaryModifier(List<Ability> primaryAbility) {
-        if (primaryAbility.size() == 1) {
-            return getModifier(primaryAbility.get(0));
-        } else {
-            for (Ability ability : primaryAbility) {
-                switch (ability) {
-                    case CHARISMA -> {
-                        return getChrModifier();
-                    }
-                    case INTELLIGENCE -> {
-                        return getIntModifier();
-                    }
-                    case WISDOM -> {
-                        return getWisModifier();
-                    }
-                }
-            }
-            return 0;
+            BY_NAME.put(a.fullName, a);
         }
     }
 
     public int value;
-    public String fullname;
+    public String fullName;
 
     Ability(int value, String abilityName) {
-        this.fullname = abilityName;
+        this.fullName = abilityName;
         this.value = value;
     }
 
@@ -94,6 +69,31 @@ public enum Ability {
         return sum;
     }
 
+    public static Ability findByName(String name) {
+        return BY_NAME.get(name);
+    }
+
+    public static int getPrimaryModifier(List<Ability> primaryAbility) {
+        if (primaryAbility.size() == 1) {
+            return getModifier(primaryAbility.get(0));
+        } else {
+            for (Ability ability : primaryAbility) {
+                switch (ability) {
+                    case CHARISMA -> {
+                        return getChrModifier();
+                    }
+                    case INTELLIGENCE -> {
+                        return getIntModifier();
+                    }
+                    case WISDOM -> {
+                        return getWisModifier();
+                    }
+                }
+            }
+            return 0;
+        }
+    }
+
     public static int getIntModifier() {
         return (int) Math.floor((INTELLIGENCE.value - 10F) / 2);
     }
@@ -120,10 +120,6 @@ public enum Ability {
 
     public static int getModifier(Ability ability) {
         return (int) Math.floor((ability.value - 10F) / 2);
-    }
-
-    public static int getModifier(String ability) {
-        return (int) Math.floor((findByName(ability).value - 10F) / 2);
     }
 
     public static void add(Ability ability, int value) {

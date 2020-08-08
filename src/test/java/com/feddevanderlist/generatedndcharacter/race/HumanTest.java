@@ -1,6 +1,6 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,7 +12,7 @@ class HumanTest {
         CharacterSheet characterSheet = new CharacterSheet();
         Human human = new Human(characterSheet);
         assertThat(human.getName(), is("Human"));
-        assertThat(human.getLanguages().size(), is(2));
+        assertThat(characterSheet.getLanguages().size(), is(2));
         assertThat(human.traits.size(), is(0));
     }
 

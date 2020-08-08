@@ -2,6 +2,7 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Language;
 
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 public class HalfOrc extends Race {
 
-    public HalfOrc() {
+    public HalfOrc(CharacterSheet characterSheet) {
         name = "Half-Orc";
         age = ThreadLocalRandom.current().nextInt(75);
         alignment = Alignment.getRandomAlignment();
@@ -20,7 +21,7 @@ public class HalfOrc extends Race {
         height = ThreadLocalRandom.current().nextInt(5, 7);
         weight = ThreadLocalRandom.current().nextInt(130, 220);
         speed = 30;
-        languages = Arrays.asList(Language.CO, Language.OR);
+        characterSheet.addLanguage(Arrays.asList(Language.CO, Language.OR));
         traits = Arrays.asList("Darkvision", "Menacing", "Relentless Endurance", "Savage Attacks");
         subrace = null;
         add(Ability.STRENGTH,2);

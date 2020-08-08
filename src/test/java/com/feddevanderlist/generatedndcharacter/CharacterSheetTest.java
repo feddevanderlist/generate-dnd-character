@@ -3,6 +3,7 @@ package com.feddevanderlist.generatedndcharacter;
 import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.Monk;
 import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

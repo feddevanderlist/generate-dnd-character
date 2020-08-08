@@ -2,7 +2,7 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 
 import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.CharacterSheet;
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Language;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
 
@@ -22,7 +22,7 @@ public class HalfElf extends Race {
         height = ThreadLocalRandom.current().nextInt(5, 6);
         weight = ThreadLocalRandom.current().nextInt(120, 200);
         speed = 30;
-        languages.add(Language.getRandomLanguage(Arrays.asList(Language.CO, Language.EL)));
+        characterSheet.addLanguage(Language.getRandomLanguage(Arrays.asList(Language.CO, Language.EL)));
         traits = Arrays.asList("Darkvision", "Fey Ancestry", "Skill Versatility");
         subrace = null;
         add(Ability.CHARISMA,2);

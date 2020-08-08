@@ -1,5 +1,7 @@
 package com.feddevanderlist.generatedndcharacter;
 
+import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
+
 import java.io.IOException;
 
 public class CharacterGenerator {

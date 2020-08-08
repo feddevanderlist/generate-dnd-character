@@ -1,11 +1,9 @@
-package com.feddevanderlist.generatedndcharacter;
+package com.feddevanderlist.generatedndcharacter.models;
 
 
 import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
 import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
 import com.feddevanderlist.generatedndcharacter.classes.Monk;
-import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.models.Skills;
 import com.feddevanderlist.generatedndcharacter.race.Race;
 
 import java.util.ArrayList;
@@ -25,6 +23,7 @@ public class CharacterSheet {
     private final List<Ability> savingThrowProficiencies;
     private int spellSaveDc;
     private int spellAttackMod;
+    private final List<Language> languageList;
 
     public CharacterSheet() {
         armorClass = 10;
@@ -37,6 +36,7 @@ public class CharacterSheet {
         race = null;
         Ability.init();
         savingThrowProficiencies = new ArrayList<>();
+        languageList = new ArrayList<>();
     }
 
 
@@ -102,11 +102,7 @@ public class CharacterSheet {
     public void addHitPoints(int hp) {
         hitPoints += hp;
     }
-
-    public void addArmorClass(int ac) {
-        armorClass += ac;
-    }
-
+    
     public void addProficiencyBonus(int pb) {
         proficiencyBonus += pb;
     }
@@ -166,4 +162,16 @@ public class CharacterSheet {
         }
         armorClass += Ability.getDexModifier();
     }
+
+    public List<Language> getLanguages() {
+        return languageList;
+    }
+
+    public void addLanguage(Language languageList) {
+        this.languageList.add(languageList);
+    }
+    public void addLanguage(List<Language> languageList) {
+        this.languageList.addAll(languageList);
+    }
+
 }
