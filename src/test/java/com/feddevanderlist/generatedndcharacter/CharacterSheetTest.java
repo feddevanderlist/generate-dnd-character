@@ -19,7 +19,7 @@ class CharacterSheetTest {
     void characterSheetTest() {
         CharacterSheet characterSheet = new CharacterSheet();
         characterSheet.addLanguage(Language.getRandomLanguage(Language.CO));
-        assertThat(characterSheet.getLanguages().size(), is(2));
+        assertThat(characterSheet.getLanguages(), hasSize(2));
         assertThat(characterSheet.getArmorClass(), is(10));
         characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
         assertThat(characterSheet.getRace(), is(notNullValue()));
@@ -32,7 +32,7 @@ class CharacterSheetTest {
         assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier() + Ability.getWisModifier()));
         int amountOfSkills = characterSheet.getProficiencies().size();
         characterSheet.addRandomSkills(2);
-        assertThat(characterSheet.getProficiencies().size(), is(amountOfSkills+2));
+        assertThat(characterSheet.getProficiencies(), hasSize(amountOfSkills+2));
     }
 
     @Test

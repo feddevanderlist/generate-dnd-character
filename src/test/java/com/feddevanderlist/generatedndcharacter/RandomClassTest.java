@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -28,6 +29,6 @@ class RandomClassTest {
             _classes.add(new RandomClass().randomClass(characterSheets));
         }
 
-        assertThat(_classes.size(), is(12));
+        assertThat(_classes, hasSize(12));
     }
 }
