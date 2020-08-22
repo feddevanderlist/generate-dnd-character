@@ -45,6 +45,7 @@ class CharacterSheetTest {
         assertThat(characterSheet.getArmorClass(), is(10 + Ability.getDexModifier() + Ability.getConModifier()));
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.history, Skills.animalHandling), 1);
         assert(characterSheet.getProficiencies().contains(Skills.arcana) || characterSheet.getProficiencies().contains(Skills.history) ||characterSheet.getProficiencies().contains(Skills.animalHandling));
+        assertThat(characterSheet.get_class(),isA(Barbarian.class));
     }
 
 }
