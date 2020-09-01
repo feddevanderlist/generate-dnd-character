@@ -51,15 +51,15 @@ class AbilityTest {
         assertThat(Ability.getPrimaryModifier(abilities), is(Ability.getChrModifier()));
 
         abilities.clear();
-        abilities.addAll(Arrays.asList(Ability.INTELLIGENCE,Ability.CONSTITUTION));
+        abilities.addAll(Arrays.asList(Ability.INTELLIGENCE, Ability.CONSTITUTION));
         assertThat(Ability.getPrimaryModifier(abilities), is(Ability.getIntModifier()));
 
         abilities.clear();
-        abilities.addAll(Arrays.asList(Ability.WISDOM,Ability.CONSTITUTION));
+        abilities.addAll(Arrays.asList(Ability.WISDOM, Ability.CONSTITUTION));
         assertThat(Ability.getPrimaryModifier(abilities), is(Ability.getWisModifier()));
 
         abilities.clear();
-        abilities.addAll(Arrays.asList(Ability.STRENGTH,Ability.CONSTITUTION));
+        abilities.addAll(Arrays.asList(Ability.STRENGTH, Ability.CONSTITUTION));
         assertThat(Ability.getPrimaryModifier(abilities), is(0));
 
     }
@@ -70,6 +70,13 @@ class AbilityTest {
         assertThat(dexMod, is(Math.floor((Ability.DEXTERITY.value - 10F) / 2)));
         Ability.add(Ability.DEXTERITY, 2);
         assertThat(Ability.getModifier(Ability.DEXTERITY), is((int) dexMod + 1));
+    }
+
+    @Test
+    void testAbilityValueOf() {
+        Ability.resetValues();
+        Ability ability = Ability.valueOf("STRENGTH");
+        assertThat(ability, is(Ability.STRENGTH));
     }
 
     @Test
