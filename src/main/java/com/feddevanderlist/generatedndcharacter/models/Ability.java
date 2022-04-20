@@ -34,6 +34,19 @@ public enum Ability {
         }
     }
 
+    public static String getAbility() {
+        String message = """
+                Strength: %s
+                Intelligence: %s
+                Constitution: %s
+                Wisdom: %s
+                Dexterity: %s
+                Charisma: %s
+                """;
+
+        return String.format(message, STRENGTH.value, INTELLIGENCE.value, CONSTITUTION.value, WISDOM.value, DEXTERITY.value, CHARISMA.value);
+    }
+
     public static void init() {
         while (calcTotal() < 70) {
             STRENGTH.value = rolAbilityScore();
