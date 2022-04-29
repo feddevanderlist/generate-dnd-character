@@ -33,7 +33,7 @@ public class ImageEditor {
         addAlignment(characterSheet.getRace().getAlignment());
 
         addSpeed(characterSheet.getRace().getSpeed());
-        addInitiative(Ability.getDexModifier(), false);
+        addInitiative(Math.max(Ability.getDexModifier(), 0), false);
         addSpellSaveDC(characterSheet.getSpellSaveDc());
         addAttackMod(characterSheet.getSpellAttackMod());
         addSavingThrowsAndSkills(characterSheet);
