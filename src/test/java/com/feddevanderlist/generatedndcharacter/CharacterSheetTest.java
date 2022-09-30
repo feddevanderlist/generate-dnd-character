@@ -23,8 +23,8 @@ class CharacterSheetTest {
         characterSheet.setRandomRace();
 
         assertThat(characterSheet.getRace(), is(notNullValue()));
-        characterSheet.set_class(new Monk(characterSheet));
-        assertThat(characterSheet.get_class(), is(notNullValue()));
+        characterSheet.setCharacterClass(new Monk(characterSheet));
+        assertThat(characterSheet.getCharacterClass(), is(notNullValue()));
         assertThat(characterSheet.getHitDice(), is(8));
         characterSheet.finalCalculation();
         assertThat(characterSheet.getInitiative(), is(characterSheet.getAbilities().getDexModifier()));
@@ -40,12 +40,12 @@ class CharacterSheetTest {
         CharacterSheet characterSheet = new CharacterSheet();
         assertThat(characterSheet.getArmorClass(), is(10));
         characterSheet.setRandomRace();
-        characterSheet.set_class(new Barbarian(characterSheet));
+        characterSheet.setCharacterClass(new Barbarian(characterSheet));
         characterSheet.finalCalculation();
         assertThat(characterSheet.getArmorClass(), is(10 + characterSheet.getAbilities().getDexModifier() + characterSheet.getAbilities().getConModifier()));
-        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.arcana, Skills.history, Skills.animalHandling), 1);
-        assert (characterSheet.getProficiencies().contains(Skills.arcana) || characterSheet.getProficiencies().contains(Skills.history) || characterSheet.getProficiencies().contains(Skills.animalHandling));
-        assertThat(characterSheet.get_class(), isA(Barbarian.class));
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.ARCANA, Skills.HISTORY, Skills.ANIMAL_HANDLING), 1);
+        assert (characterSheet.getProficiencies().contains(Skills.ARCANA) || characterSheet.getProficiencies().contains(Skills.HISTORY) || characterSheet.getProficiencies().contains(Skills.ANIMAL_HANDLING));
+        assertThat(characterSheet.getCharacterClass(), isA(Barbarian.class));
     }
 
 }

@@ -14,6 +14,6 @@ public class Ranger extends GlobalClass {
         armorProficiencies.addAll(ArmorType.getNotHeavyArmor());
         characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.STRENGTH, AbilityIdentifier.DEXTERITY));
         characterSheet.addProficiencyBonus(2);
-        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.animalHandling, Skills.athletics, Skills.insight, Skills.investigation, Skills.nature, Skills.perception, Skills.stealth, Skills.survival), 2);
+        characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.ANIMAL_HANDLING, Skills.ATHLETICS, Skills.INSIGHT, Skills.INVESTIGATION, Skills.NATURE, Skills.PERCEPTION, Skills.STEALTH, Skills.SURVIVAL), 2);
     }
 }

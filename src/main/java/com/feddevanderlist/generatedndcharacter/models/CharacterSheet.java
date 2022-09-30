@@ -16,7 +16,7 @@ public class CharacterSheet {
     private int initiative;
     private int proficiencyBonus;
     private final List<Skills> proficiencies;
-    private GlobalClass _class;
+    private GlobalClass characterClass;
     private Race race;
     private final List<AbilityIdentifier> savingThrowProficiencies;
     private int spellSaveDc;
@@ -31,7 +31,7 @@ public class CharacterSheet {
         initiative = 0;
         proficiencyBonus = 0;
         proficiencies = new ArrayList<>();
-        _class = null;
+        characterClass = null;
         race = null;
         abilities = new Abilities();
         abilities.init();
@@ -79,12 +79,12 @@ public class CharacterSheet {
         return proficiencies;
     }
 
-    public GlobalClass get_class() {
-        return _class;
+    public GlobalClass getCharacterClass() {
+        return characterClass;
     }
 
-    public void set_class(GlobalClass _class) {
-        this._class = _class;
+    public void setCharacterClass(GlobalClass characterClass) {
+        this.characterClass = characterClass;
     }
 
     public Race getRace() {
@@ -125,7 +125,7 @@ public class CharacterSheet {
             allSkills.removeAll(proficiencies);
         }
         if (allSkills.isEmpty()) {
-            throw new ArrayIndexOutOfBoundsException("Somehow there are no skills left wtf. \n the class name is: " + _class.getName());
+            throw new ArrayIndexOutOfBoundsException("Somehow there are no skills left wtf. \n the class name is: " + characterClass.getName());
         }
         for (int i = 0; i < amount; i++) {
             int random = ThreadLocalRandom.current().nextInt(allSkills.size());
@@ -144,11 +144,11 @@ public class CharacterSheet {
     }
 
     public void calculateSpellDC() {
-        this.spellSaveDc = 8 + proficiencyBonus + abilities.getPrimaryModifier(_class.getPrimaryAbility());
+        this.spellSaveDc = 8 + proficiencyBonus + abilities.getPrimaryModifier(characterClass.getPrimaryAbility());
     }
 
     public void calculateSpellAtkMod() {
-        this.spellAttackMod = proficiencyBonus + abilities.getPrimaryModifier(_class.getPrimaryAbility());
+        this.spellAttackMod = proficiencyBonus + abilities.getPrimaryModifier(characterClass.getPrimaryAbility());
     }
 
     public void finalCalculation() {
@@ -158,9 +158,9 @@ public class CharacterSheet {
     }
 
     void calculateArmorClass() {
-        if (get_class() instanceof Barbarian) {
+        if (getCharacterClass() instanceof Barbarian) {
             armorClass += abilities.getConModifier();
-        } else if (get_class() instanceof Monk) {
+        } else if (getCharacterClass() instanceof Monk) {
             armorClass += abilities.getWisModifier();
         }
         armorClass += abilities.getDexModifier();
@@ -207,7 +207,7 @@ public class CharacterSheet {
     }
 
     public void setRandomClass() {
-        this._class = randomClass(this);
+        this.characterClass = randomClass(this);
     }
 
     private GlobalClass randomClass(CharacterSheet characterSheet) {

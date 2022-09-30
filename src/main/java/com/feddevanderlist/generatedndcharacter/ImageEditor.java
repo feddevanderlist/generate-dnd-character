@@ -25,7 +25,7 @@ public class ImageEditor {
     }
 
     public void fillAllFields(CharacterSheet characterSheet) {
-        addClassAndLevelToSheet(characterSheet.get_class().getName());
+        addClassAndLevelToSheet(characterSheet.getCharacterClass().getName());
         addRace(characterSheet.getRace().getName());
         addAbilityScores(characterSheet.getAbilities());
         addHitPoints(characterSheet.getHitPoints());
@@ -38,8 +38,8 @@ public class ImageEditor {
         addSpellSaveDC(characterSheet.getSpellSaveDc());
         addAttackMod(characterSheet.getSpellAttackMod());
         addSavingThrowsAndSkills(characterSheet);
-        addWeaponProficiencies(characterSheet.get_class().getWeaponProficiencies());
-        addArmorProficiencies(characterSheet.get_class().getArmorProficiencies());
+        addWeaponProficiencies(characterSheet.getCharacterClass().getWeaponProficiencies());
+        addArmorProficiencies(characterSheet.getCharacterClass().getArmorProficiencies());
         addLanguageProficiencies(characterSheet.getLanguages());
     }
 
@@ -208,76 +208,76 @@ public class ImageEditor {
                 bonus += 2;
             }
             switch (skill) {
-                case acrobatics -> {
+                case ACROBATICS -> {
                     bonus += abilities.getDexModifier();
                     y = 698;
                 }
-                case animalHandling -> {
+                case ANIMAL_HANDLING -> {
                     bonus += abilities.getWisModifier();
                     y = 1227;
                 }
-                case arcana -> {
+                case ARCANA -> {
                     bonus += abilities.getIntModifier();
                     y = 1049;
                 }
-                case athletics -> {
+                case ATHLETICS -> {
                     bonus += abilities.getStrModifier();
                     y = 521;
                 }
-                case deception -> {
+                case DECEPTION -> {
                     bonus += abilities.getChrModifier();
                     y = 1403;
                 }
-                case history -> {
+                case HISTORY -> {
                     bonus += abilities.getIntModifier();
                     y = 1074;
                 }
-                case insight -> {
+                case INSIGHT -> {
                     bonus += abilities.getWisModifier();
                     y = 1252;
                 }
-                case intimidation -> {
+                case INTIMIDATION -> {
                     bonus += abilities.getChrModifier();
                     y = 1428;
                 }
-                case investigation -> {
+                case INVESTIGATION -> {
                     bonus += abilities.getIntModifier();
                     y = 1100;
                 }
-                case medicine -> {
+                case MEDICINE -> {
                     bonus += abilities.getWisModifier();
                     y = 1277;
                 }
-                case nature -> {
+                case NATURE -> {
                     bonus += abilities.getIntModifier();
                     y = 1123;
                 }
-                case perception -> {
+                case PERCEPTION -> {
                     addPassivePerception(abilities.getWisdom() + bonus); //Set passive perception
                     bonus += abilities.getWisModifier();
                     y = 1301;
                 }
-                case performance -> {
+                case PERFORMANCE -> {
                     bonus += abilities.getChrModifier();
                     y = 1453;
                 }
-                case persuasion -> {
+                case PERSUASION -> {
                     bonus += abilities.getChrModifier();
                     y = 1478;
                 }
-                case religion -> {
+                case RELIGION -> {
                     bonus += abilities.getIntModifier();
                     y = 1149;
                 }
-                case sleightOfHand -> {
+                case SLEIGHT_OF_HAND -> {
                     bonus += abilities.getDexModifier();
                     y = 721;
                 }
-                case stealth -> {
+                case STEALTH -> {
                     bonus += abilities.getDexModifier();
                     y = 746;
                 }
-                case survival -> {
+                case SURVIVAL -> {
                     bonus += abilities.getWisModifier();
                     y = 1326;
                 }

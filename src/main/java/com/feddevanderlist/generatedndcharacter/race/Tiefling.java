@@ -18,7 +18,7 @@ public class Tiefling extends Race {
         speed = 30;
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.IN));
         traits = Arrays.asList("Darkvision", "Hellish Resistance", "Infernal Legacy");
-        characterSheet.getProficiencies().add(Skills.intimidation);
+        characterSheet.getProficiencies().add(Skills.INTIMIDATION);
         subrace = null;
         characterSheet.addValueToAbility(AbilityIdentifier.CHARISMA, 2);
         characterSheet.addValueToAbility(AbilityIdentifier.INTELLIGENCE, 1);

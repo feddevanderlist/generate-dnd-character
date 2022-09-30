@@ -19,7 +19,7 @@ public class Elf extends Race {
         speed = 30;
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.EL));
         traits.addAll(Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
-        characterSheet.getProficiencies().add(Skills.perception);
+        characterSheet.getProficiencies().add(Skills.PERCEPTION);
         chooseSubrace(characterSheet);
         characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 2);
     }
