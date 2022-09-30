@@ -1,14 +1,9 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.Language;
-import com.feddevanderlist.generatedndcharacter.models.Skills;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
-
-import static com.feddevanderlist.generatedndcharacter.models.Ability.*;
 
 
 public class Tiefling extends Race {
@@ -25,7 +20,7 @@ public class Tiefling extends Race {
         traits = Arrays.asList("Darkvision", "Hellish Resistance", "Infernal Legacy");
         characterSheet.getProficiencies().add(Skills.intimidation);
         subrace = null;
-        add(CHARISMA, 2);
-        add(INTELLIGENCE, 1);
+        characterSheet.addValueToAbility(AbilityIdentifier.CHARISMA, 2);
+        characterSheet.addValueToAbility(AbilityIdentifier.INTELLIGENCE, 1);
     }
 }

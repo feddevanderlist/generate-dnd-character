@@ -1,6 +1,6 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.models.Ability;
+import com.feddevanderlist.generatedndcharacter.models.AbilityIdentifier;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
 import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Language;
@@ -8,8 +8,6 @@ import com.feddevanderlist.generatedndcharacter.models.Language;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
-import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Halfling extends Race {
@@ -25,18 +23,18 @@ public class Halfling extends Race {
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.HA));
         traits.addAll(Arrays.asList("Lucky", "Brave", "Halfling Nimbleness"));
         chooseSubrace(characterSheet);
-        add(Ability.DEXTERITY, 2);
+        characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 2);
     }
 
     private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("Lightfoot", "Stout");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Lightfoot")) {
-            add(Ability.CHARISMA, 1);
+            characterSheet.addValueToAbility(AbilityIdentifier.CHARISMA, 1);
             characterSheet.addHitPoints(1);
             traits.add("Naturally Stealthy");
         } else if (subrace.equals("Stout")) {
-            add(Ability.CONSTITUTION, 2);
+            characterSheet.addValueToAbility(AbilityIdentifier.CONSTITUTION, 2);
             traits.add("Stout Resilience");
         }
     }

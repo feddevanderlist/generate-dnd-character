@@ -1,11 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
-import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.models.ArmorType;
-import com.feddevanderlist.generatedndcharacter.models.Skills;
-import com.feddevanderlist.generatedndcharacter.models.WeaponType;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import java.util.Arrays;
 
@@ -13,10 +9,10 @@ public class Cleric extends GlobalClass {
     public Cleric(CharacterSheet characterSheet) {
         name = "Cleric";
         characterSheet.setHitDice(8);
-        primaryAbility.add(Ability.WISDOM);
+        primaryAbilities.add(AbilityIdentifier.WISDOM);
         weaponProficiencies.add(WeaponType.SIMPLE);
         armorProficiencies.addAll(ArmorType.getNotHeavyArmor());
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.WISDOM, Ability.CHARISMA));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.history, Skills.insight, Skills.medicine, Skills.persuasion, Skills.religion), 2);
     }

@@ -1,15 +1,10 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.models.Language;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
-import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
 
 
 public class Dwarf extends Race {
@@ -25,18 +20,18 @@ public class Dwarf extends Race {
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.DW));
         traits.addAll(Arrays.asList("Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"));
         chooseSubrace(characterSheet);
-        add(Ability.CONSTITUTION,2);
+        characterSheet.addValueToAbility(AbilityIdentifier.CONSTITUTION, 2);
     }
 
     private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("Hill Dwarves", "Mountain Dwarves");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("Hill Dwarves")) {
-            add(Ability.WISDOM,1);
+            characterSheet.addValueToAbility(AbilityIdentifier.WISDOM, 1);
             characterSheet.addHitPoints(1);
             traits.add("Dwarven Toughness");
         } else if (subrace.equals("Mountain Dwarves")) {
-            add(Ability.STRENGTH,2);
+            characterSheet.addValueToAbility(AbilityIdentifier.STRENGTH, 2);
             traits.add("Dwarven Armor Training");
         }
     }

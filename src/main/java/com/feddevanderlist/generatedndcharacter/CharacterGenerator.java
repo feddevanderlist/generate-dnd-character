@@ -8,14 +8,11 @@ public class CharacterGenerator {
     
     public static void main(String[] args) throws IOException {
        CharacterSheet characterSheet = new CharacterSheet();
-
-        characterSheet.setRace(new ChooseRace().randomRace(characterSheet));
-        characterSheet.set_class(new RandomClass().randomClass(characterSheet));
+        characterSheet.setRandomRace();
+        characterSheet.setRandomClass();
         characterSheet.finalCalculation();
-
         ImageEditor printableCharacterSheet = new ImageEditor();
         printableCharacterSheet.fillAllFields(characterSheet);
-
         printableCharacterSheet.writeImage();
     }
 }

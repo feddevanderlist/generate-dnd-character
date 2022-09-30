@@ -1,11 +1,7 @@
 package com.feddevanderlist.generatedndcharacter.classes;
 
 
-import com.feddevanderlist.generatedndcharacter.models.Ability;
-import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.models.ArmorType;
-import com.feddevanderlist.generatedndcharacter.models.Skills;
-import com.feddevanderlist.generatedndcharacter.models.WeaponType;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import java.util.Arrays;
 
@@ -13,10 +9,10 @@ public class Paladin extends GlobalClass {
     public Paladin(CharacterSheet characterSheet) {
         name = "Paladin";
         characterSheet.setHitDice(10);
-        primaryAbility.addAll(Arrays.asList(Ability.STRENGTH, Ability.CHARISMA));
+        primaryAbilities.addAll(Arrays.asList(AbilityIdentifier.STRENGTH, AbilityIdentifier.CHARISMA));
         weaponProficiencies.addAll(Arrays.asList(WeaponType.SIMPLE, WeaponType.MARTIAL));
         armorProficiencies.addAll(ArmorType.getAllArmor());
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(Ability.WISDOM, Ability.CHARISMA));
+        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.athletics, Skills.insight, Skills.intimidation, Skills.medicine, Skills.persuasion, Skills.religion), 2);
     }

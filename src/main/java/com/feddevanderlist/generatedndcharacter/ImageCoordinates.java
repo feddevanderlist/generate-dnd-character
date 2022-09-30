@@ -42,9 +42,13 @@ public class ImageCoordinates {
             1933
     ));
 
-    private ImageCoordinates(){}
+    private ImageCoordinates() {
+    }
 
     public static int getFirstFeatureLine() {
+        if (featureLines.isEmpty()) {
+            return 0;
+        }
         int result = featureLines.get(0);
         featureLines.remove(0);
         return result;

@@ -21,7 +21,6 @@ public class Race {
     String subrace = null;
     final String gender = g[ThreadLocalRandom.current().nextInt(2)];
 
-
     public String getName() {
         return name;
     }

@@ -1,10 +1,8 @@
 package com.feddevanderlist.generatedndcharacter.models;
 
 
-import com.feddevanderlist.generatedndcharacter.classes.Barbarian;
-import com.feddevanderlist.generatedndcharacter.classes.GlobalClass;
-import com.feddevanderlist.generatedndcharacter.classes.Monk;
-import com.feddevanderlist.generatedndcharacter.race.Race;
+import com.feddevanderlist.generatedndcharacter.classes.*;
+import com.feddevanderlist.generatedndcharacter.race.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,10 +18,11 @@ public class CharacterSheet {
     private final List<Skills> proficiencies;
     private GlobalClass _class;
     private Race race;
-    private final List<Ability> savingThrowProficiencies;
+    private final List<AbilityIdentifier> savingThrowProficiencies;
     private int spellSaveDc;
     private int spellAttackMod;
     private final List<Language> languageList;
+    private final Abilities abilities;
 
     public CharacterSheet() {
         armorClass = 10;
@@ -34,7 +33,8 @@ public class CharacterSheet {
         proficiencies = new ArrayList<>();
         _class = null;
         race = null;
-        Ability.init();
+        abilities = new Abilities();
+        abilities.init();
         savingThrowProficiencies = new ArrayList<>();
         languageList = new ArrayList<>();
     }
@@ -95,14 +95,14 @@ public class CharacterSheet {
         this.race = race;
     }
 
-    public List<Ability> getSavingThrowProficiencies() {
+    public List<AbilityIdentifier> getSavingThrowProficiencies() {
         return savingThrowProficiencies;
     }
 
     public void addHitPoints(int hp) {
         hitPoints += hp;
     }
-    
+
     public void addProficiencyBonus(int pb) {
         proficiencyBonus += pb;
     }
@@ -124,6 +124,9 @@ public class CharacterSheet {
         if (!proficiencies.isEmpty()) {
             allSkills.removeAll(proficiencies);
         }
+        if (allSkills.isEmpty()) {
+            throw new ArrayIndexOutOfBoundsException("Somehow there are no skills left wtf. \n the class name is: " + _class.getName());
+        }
         for (int i = 0; i < amount; i++) {
             int random = ThreadLocalRandom.current().nextInt(allSkills.size());
             Skills skill = allSkills.get(random);
@@ -133,19 +136,19 @@ public class CharacterSheet {
     }
 
     public void calculateInitiative() {
-        this.initiative = Ability.getDexModifier();
+        this.initiative = abilities.getDexModifier();
     }
 
     public void calculateHitPoints() {
-        this.hitPoints = this.hitDice + Ability.getConModifier();
+        this.hitPoints = this.hitDice + abilities.getConModifier();
     }
 
     public void calculateSpellDC() {
-        this.spellSaveDc = 8 + proficiencyBonus + Ability.getPrimaryModifier(_class.getPrimaryAbility());
+        this.spellSaveDc = 8 + proficiencyBonus + abilities.getPrimaryModifier(_class.getPrimaryAbility());
     }
 
     public void calculateSpellAtkMod() {
-        this.spellAttackMod = proficiencyBonus + Ability.getPrimaryModifier(_class.getPrimaryAbility());
+        this.spellAttackMod = proficiencyBonus + abilities.getPrimaryModifier(_class.getPrimaryAbility());
     }
 
     public void finalCalculation() {
@@ -156,11 +159,11 @@ public class CharacterSheet {
 
     void calculateArmorClass() {
         if (get_class() instanceof Barbarian) {
-            armorClass += Ability.getConModifier();
-        } else if(get_class() instanceof Monk){
-            armorClass += Ability.getWisModifier();
+            armorClass += abilities.getConModifier();
+        } else if (get_class() instanceof Monk) {
+            armorClass += abilities.getWisModifier();
         }
-        armorClass += Ability.getDexModifier();
+        armorClass += abilities.getDexModifier();
     }
 
     public List<Language> getLanguages() {
@@ -170,7 +173,59 @@ public class CharacterSheet {
     public void addLanguage(Language languageList) {
         this.languageList.add(languageList);
     }
+
     public void addLanguage(List<Language> languageList) {
         this.languageList.addAll(languageList);
+    }
+
+    public void addValueToAbility(AbilityIdentifier abilityIdentifier, int value) {
+        abilities.add(abilityIdentifier, value);
+    }
+
+    public Abilities getAbilities() {
+        return abilities;
+    }
+
+    private Race randomRace(CharacterSheet characterSheet) {
+        int number = ThreadLocalRandom.current().nextInt(9);
+        return switch (number) {
+            case 0 -> new Dwarf(characterSheet);
+            case 1 -> new Elf(characterSheet);
+            case 2 -> new Halfling(characterSheet);
+            case 3 -> new Human(characterSheet);
+            case 4 -> new Dragonborn(characterSheet);
+            case 5 -> new Gnome(characterSheet);
+            case 6 -> new HalfElf(characterSheet);
+            case 7 -> new HalfOrc(characterSheet);
+            case 8 -> new Tiefling(characterSheet);
+            default -> throw new IllegalStateException("Unexpected value: " + number);
+        };
+    }
+
+    public void setRandomRace() {
+        this.race = randomRace(this);
+    }
+
+    public void setRandomClass() {
+        this._class = randomClass(this);
+    }
+
+    private GlobalClass randomClass(CharacterSheet characterSheet) {
+        int number = ThreadLocalRandom.current().nextInt(12);
+        return switch (number) {
+            case 0 -> new Barbarian(characterSheet);
+            case 1 -> new Bard(characterSheet);
+            case 2 -> new Cleric(characterSheet);
+            case 3 -> new Druid(characterSheet);
+            case 4 -> new Fighter(characterSheet);
+            case 5 -> new Monk(characterSheet);
+            case 6 -> new Paladin(characterSheet);
+            case 7 -> new Ranger(characterSheet);
+            case 8 -> new Rogue(characterSheet);
+            case 9 -> new Sorcerer(characterSheet);
+            case 10 -> new Warlock(characterSheet);
+            case 11 -> new Wizard(characterSheet);
+            default -> throw new IllegalStateException("Unexpected value: " + number);
+        };
     }
 }

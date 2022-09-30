@@ -6,8 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.feddevanderlist.generatedndcharacter.models.Ability.add;
-
 
 public class Elf extends Race {
 
@@ -23,19 +21,19 @@ public class Elf extends Race {
         traits.addAll(Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
         characterSheet.getProficiencies().add(Skills.perception);
         chooseSubrace(characterSheet);
-        add(Ability.DEXTERITY, 2);
+        characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 2);
     }
 
     private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("High Elf", "Wood Elf");
         subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
         if (subrace.equals("High Elf")) {
-            add(Ability.INTELLIGENCE, 1);
+            characterSheet.addValueToAbility(AbilityIdentifier.INTELLIGENCE, 1);
             characterSheet.addHitPoints(1);
             traits.add("Elf Weapon Training");
             characterSheet.addLanguage(Language.getRandomLanguage(characterSheet.getLanguages()));
         } else if (subrace.equals("Wood Elf")) {
-            add(Ability.WISDOM, 1);
+            characterSheet.addValueToAbility(AbilityIdentifier.WISDOM, 1);
             traits.addAll(Arrays.asList("Elf Weapon Training", "Mask of the Wild"));
             speed = 35;
         }
