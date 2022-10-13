@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Race {
+public abstract class  Race {
     private final String[] g = {"Male", "Female"};
 
-    String name;
-    int age;
-    Alignment alignment;
-    String size;
-    double height;
-    int weight;
-    int speed;
-    List<String> traits = new ArrayList<>();
-    String subrace = null;
-    final String gender = g[ThreadLocalRandom.current().nextInt(2)];
+    protected String name;
+    protected int age;
+    protected Alignment alignment;
+    protected String size;
+    protected double height;
+    protected int weight;
+    protected int speed;
+    protected List<String> traits = new ArrayList<>();
+    protected String subrace = null;
+    protected final String gender = g[ThreadLocalRandom.current().nextInt(2)];
 
     public String getName() {
         return name;

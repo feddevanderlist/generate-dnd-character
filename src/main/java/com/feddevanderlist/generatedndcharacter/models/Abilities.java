@@ -93,7 +93,6 @@ public class Abilities {
                     case WISDOM -> {
                         return getWisModifier();
                     }
-                    default -> throw new IllegalStateException("Unexpected value" + abilities.getName());
                 }
 
             }

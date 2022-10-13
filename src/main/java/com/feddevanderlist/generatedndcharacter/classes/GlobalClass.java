@@ -7,11 +7,11 @@ import com.feddevanderlist.generatedndcharacter.models.WeaponType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlobalClass {
-    final List<WeaponType> weaponProficiencies = new ArrayList<>();
-    final List<ArmorType> armorProficiencies = new ArrayList<>();
-    final List<AbilityIdentifier> primaryAbilities = new ArrayList<>();
-    String name;
+public abstract class GlobalClass {
+    protected final List<WeaponType> weaponProficiencies = new ArrayList<>();
+    protected final List<ArmorType> armorProficiencies = new ArrayList<>();
+    protected final List<AbilityIdentifier> primaryAbilities = new ArrayList<>();
+    protected String name;
 
     public String getName() {
         return name;
