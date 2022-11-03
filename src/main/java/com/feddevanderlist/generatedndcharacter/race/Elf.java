@@ -10,15 +10,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Elf extends Race {
 
     public Elf(CharacterSheet characterSheet) {
-        name = "Elf";
-        age = ThreadLocalRandom.current().nextInt(5, 750);
-        alignment = Alignment.getRandomAlignment();
-        size = "medium";
-        height = ThreadLocalRandom.current().nextDouble(4.5, 6.2);
-        weight = ThreadLocalRandom.current().nextInt(100, 145);
-        speed = 30;
+        super("Elf", new Bound(5, 750), Size.MEDIUM, new Bound(4.5, 6.2), new Bound(100, 145), 30, Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.EL));
-        traits.addAll(Arrays.asList("Darkvision", "Keen Senses", "Fey Ancestry", "Trance"));
+
         characterSheet.getProficiencies().add(Skills.PERCEPTION);
         chooseSubrace(characterSheet);
         characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 2);

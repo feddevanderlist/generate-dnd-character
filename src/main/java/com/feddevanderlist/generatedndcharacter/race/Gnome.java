@@ -2,8 +2,10 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.models.AbilityIdentifier;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Bound;
 import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Language;
+import com.feddevanderlist.generatedndcharacter.models.Size;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,15 +15,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Gnome extends Race {
 
     public Gnome(CharacterSheet characterSheet) {
-        name = "Gnome";
-        age = ThreadLocalRandom.current().nextInt(500);
-        alignment = Alignment.getRandomAlignment();
-        size = "small";
-        height = ThreadLocalRandom.current().nextInt(3, 4);
-        weight = ThreadLocalRandom.current().nextInt(30, 50);
-        speed = 25;
+        super("Gnome", 500, Size.SMALL, new Bound(3, 4), new Bound(30, 50), 25, Arrays.asList("Darkvision", "Gnome Cunning"));
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.GN));
-        traits.addAll(Arrays.asList("Darkvision", "Gnome Cunning"));
         chooseSubrace(characterSheet);
         characterSheet.addValueToAbility(AbilityIdentifier.INTELLIGENCE, 2);
     }

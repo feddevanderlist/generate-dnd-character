@@ -2,8 +2,10 @@ package com.feddevanderlist.generatedndcharacter.race;
 
 import com.feddevanderlist.generatedndcharacter.models.AbilityIdentifier;
 import com.feddevanderlist.generatedndcharacter.models.Alignment;
+import com.feddevanderlist.generatedndcharacter.models.Bound;
 import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
 import com.feddevanderlist.generatedndcharacter.models.Language;
+import com.feddevanderlist.generatedndcharacter.models.Size;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,15 +15,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Halfling extends Race {
 
     public Halfling(CharacterSheet characterSheet) {
-        name = "Halfling";
-        age = ThreadLocalRandom.current().nextInt(5, 40);
-        alignment = Alignment.getRandomAlignment();
-        size = "small";
-        height = ThreadLocalRandom.current().nextDouble(3, 4.5);
-        weight = ThreadLocalRandom.current().nextInt(30, 50);
-        speed = 25;
+        super("Halfling",new Bound(5,40), Size.SMALL,new Bound(3,4.5),new Bound(30,50),25,Arrays.asList("Lucky", "Brave", "Halfling Nimbleness"));
         characterSheet.addLanguage(Arrays.asList(Language.CO, Language.HA));
-        traits.addAll(Arrays.asList("Lucky", "Brave", "Halfling Nimbleness"));
         chooseSubrace(characterSheet);
         characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 2);
     }
