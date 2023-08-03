@@ -12,7 +12,7 @@ public class Druid extends GlobalClass {
         primaryAbilities.add(AbilityIdentifier.WISDOM);
         weaponProficiencies.addAll(Arrays.asList(WeaponType.CLUB, WeaponType.SHIELD, WeaponType.DARTS, WeaponType.JAVELIN, WeaponType.MACE, WeaponType.QS, WeaponType.ST, WeaponType.SICKLE, WeaponType.SLING, WeaponType.SPEAR));
         armorProficiencies.addAll(ArmorType.getNonMetalArmor());
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.INTELLIGENCE));
+        characterSheet.addSavingThrowProficiencies(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.INTELLIGENCE));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.ARCANA, Skills.ANIMAL_HANDLING, Skills.INSIGHT, Skills.MEDICINE, Skills.NATURE, Skills.PERCEPTION, Skills.RELIGION, Skills.SURVIVAL), 2);
     }

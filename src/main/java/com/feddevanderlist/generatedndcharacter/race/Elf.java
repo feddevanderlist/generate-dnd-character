@@ -20,16 +20,17 @@ public class Elf extends Race {
 
     private void chooseSubrace(CharacterSheet characterSheet) {
         List<String> possibleSubrace = Arrays.asList("High Elf", "Wood Elf");
-        subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
+        final String subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
+        this.setSubrace(subrace);
         if (subrace.equals("High Elf")) {
             characterSheet.addValueToAbility(AbilityIdentifier.INTELLIGENCE, 1);
             characterSheet.addHitPoints(1);
-            traits.add("Elf Weapon Training");
+            this.addTrait("Elf Weapon Training");
             characterSheet.addLanguage(Language.getRandomLanguage(characterSheet.getLanguages()));
         } else if (subrace.equals("Wood Elf")) {
             characterSheet.addValueToAbility(AbilityIdentifier.WISDOM, 1);
-            traits.addAll(Arrays.asList("Elf Weapon Training", "Mask of the Wild"));
-            speed = 35;
+            this.addTraits(Arrays.asList("Elf Weapon Training", "Mask of the Wild"));
+            this.setSpeed(35);
         }
     }
 }

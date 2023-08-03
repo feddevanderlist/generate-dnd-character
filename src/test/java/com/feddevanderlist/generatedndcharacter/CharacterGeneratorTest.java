@@ -10,7 +10,7 @@ import java.nio.file.Path;
 class CharacterGeneratorTest {
 
     @Test
-    void main() throws IOException {
+    void test() throws IOException {
         CharacterGenerator.main(new String[]{});
         Path basePath = Path.of("src\\main\\resources\\test.jpg");
 

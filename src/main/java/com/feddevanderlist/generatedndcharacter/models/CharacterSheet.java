@@ -99,6 +99,14 @@ public class CharacterSheet {
         return savingThrowProficiencies;
     }
 
+    public void addSavingThrowProficiencies(List<AbilityIdentifier> abilityIdentifiers) {
+        savingThrowProficiencies.addAll(abilityIdentifiers);
+    }
+
+    public void addSavingThrowProficiency(AbilityIdentifier abilityIdentifier) {
+        savingThrowProficiencies.add(abilityIdentifier);
+    }
+
     public void addHitPoints(int hp) {
         hitPoints += hp;
     }

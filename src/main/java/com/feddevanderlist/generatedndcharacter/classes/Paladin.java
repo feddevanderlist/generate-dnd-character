@@ -12,7 +12,7 @@ public class Paladin extends GlobalClass {
         primaryAbilities.addAll(Arrays.asList(AbilityIdentifier.STRENGTH, AbilityIdentifier.CHARISMA));
         weaponProficiencies.addAll(Arrays.asList(WeaponType.SIMPLE, WeaponType.MARTIAL));
         armorProficiencies.addAll(ArmorType.getAllArmor());
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.CHARISMA));
+        characterSheet.addSavingThrowProficiencies(Arrays.asList(AbilityIdentifier.WISDOM, AbilityIdentifier.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkillsFromList(Arrays.asList(Skills.ATHLETICS, Skills.INSIGHT, Skills.INTIMIDATION, Skills.MEDICINE, Skills.PERSUASION, Skills.RELIGION), 2);
     }

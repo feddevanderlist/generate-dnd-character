@@ -1,11 +1,6 @@
 package com.feddevanderlist.generatedndcharacter.race;
 
-import com.feddevanderlist.generatedndcharacter.models.AbilityIdentifier;
-import com.feddevanderlist.generatedndcharacter.models.Alignment;
-import com.feddevanderlist.generatedndcharacter.models.Bound;
-import com.feddevanderlist.generatedndcharacter.models.CharacterSheet;
-import com.feddevanderlist.generatedndcharacter.models.Language;
-import com.feddevanderlist.generatedndcharacter.models.Size;
+import com.feddevanderlist.generatedndcharacter.models.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,16 +17,17 @@ public class Gnome extends Race {
     }
 
     private void chooseSubrace(CharacterSheet characterSheet) {
-        List<String> possibleSubrace = Arrays.asList("Rock Gnome", "Forest Gnomes");
-        subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
+        final List<String> possibleSubrace = Arrays.asList("Rock Gnome", "Forest Gnomes");
+        final String subrace = possibleSubrace.get(ThreadLocalRandom.current().nextInt(possibleSubrace.size()));
+        this.setSubrace(subrace);
         if (subrace.equals("Rock Gnome")) {
             characterSheet.addValueToAbility(AbilityIdentifier.CONSTITUTION, 1);
-            traits.add("Artificer’s Lore");
-            traits.add("Tinker");
+            this.addTrait("Artificer’s Lore");
+            this.addTrait("Tinker");
         } else if (subrace.equals("Forest Gnomes")) {
             characterSheet.addValueToAbility(AbilityIdentifier.DEXTERITY, 1);
-            traits.add("Natural Illusionist");
-            traits.add("Speak with Small Beasts.");
+            this.addTrait("Natural Illusionist");
+            this.addTrait("Speak with Small Beasts.");
         }
     }
 }

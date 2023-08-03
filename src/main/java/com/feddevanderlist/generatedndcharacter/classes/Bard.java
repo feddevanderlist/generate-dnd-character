@@ -15,7 +15,7 @@ public class Bard extends GlobalClass {
         primaryAbilities.add(AbilityIdentifier.CHARISMA);
         armorProficiencies.add(ArmorType.LIGHT);
         weaponProficiencies.addAll(Arrays.asList(WeaponType.SIMPLE, WeaponType.HC, WeaponType.LS, WeaponType.RAPIER, WeaponType.SH));
-        characterSheet.getSavingThrowProficiencies().addAll(Arrays.asList(AbilityIdentifier.DEXTERITY, AbilityIdentifier.CHARISMA));
+        characterSheet.addSavingThrowProficiencies(Arrays.asList(AbilityIdentifier.DEXTERITY, AbilityIdentifier.CHARISMA));
         characterSheet.addProficiencyBonus(2);
         characterSheet.addRandomSkills(3);
     }

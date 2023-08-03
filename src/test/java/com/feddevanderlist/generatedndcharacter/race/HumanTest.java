@@ -13,7 +13,7 @@ class HumanTest {
         Human human = new Human(characterSheet);
         assertThat(human.getName(), is("Human"));
         assertThat(characterSheet.getLanguages().size(), is(2));
-        assertThat(human.traits.size(), is(0));
+        assertThat(human.getTraits().size(), is(0));
     }
 
 }

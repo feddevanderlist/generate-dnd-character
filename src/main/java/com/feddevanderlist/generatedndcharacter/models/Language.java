@@ -42,7 +42,6 @@ public enum Language {
         }
         return allLanguages.get(ThreadLocalRandom.current().nextInt(allLanguages.size()));
     }
-
     public static List<Language> getRandomLanguage(Language learned) {
         Language extraLanguage;
         List<Language> languageList = new ArrayList<>(Arrays.asList(values()));
