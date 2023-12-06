@@ -68,7 +68,6 @@ public abstract class Race {
     public String getName() {
         return name;
     }
-
     public int getAge() {
         return age;
     }
